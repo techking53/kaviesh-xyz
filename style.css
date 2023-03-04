@@ -1,0 +1,142 @@
+*{
+margin:0;
+}html{font-size: 10px}
+
+:root{
+    --black: #000;
+    --white: #fff;
+    --cyan: #67e7d7;
+    --mint: #00FFC5;
+    --navy: #035E7B;
+    --yellow: #FFFC31;
+    --red: #FF3131;
+}
+
+.side{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+#left-side{
+    z-index: 2;
+    background-color: var(--black);
+    width: 50%;
+    color: var(--white);
+    max-width: 100%;
+    max-width: 100%;
+}
+
+.right-side{
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.slider h2{
+    font-family: 'Source Code Pro', monospace;
+    width: 80vw;
+    margin: 0 23vw 30vh 23vw;
+    font-size: 8rem;
+}
+
+#left-side .fancy{
+    font-family: 'Dancing Script', cursive;
+    color: var(--cyan);
+}
+.right-side .fancy{
+    font-family: 'VT323', monospace;
+    color: #5e0a8f;
+}
+.fancy{
+    font-size: 12rem;
+}
+
+/* ---------------- */
+.yincont{
+    width: 100vw;
+    margin: 0
+}
+#left-side.yincont{
+    margin-top: 1px;
+}
+.yinyang
+{
+	width: 12vw;
+	height: 12vw;
+	border-radius: 50%;
+	background: linear-gradient(to bottom,black 0%,black 50%,white 50%,white 100%);
+	border: 5px solid white;
+	box-shadow: 6px 6px 27px 4px rgba(0,0,0,0.16);
+	display: block;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	animation: 2s rotate linear infinite;
+    z-index: 1;
+    margin: 20vh 0 0 10%;
+	
+}
+
+#left-side .yinyang{
+    background: linear-gradient(to bottom,white 0%,white 50%,black 50%,black 100%);
+    border: 5px solid black;
+    box-shadow: 6px 6px 27px 4px rgba(255, 255, 255, 0.16);
+}
+
+.yinyang:after, .yinyang:before
+{
+	content: '';
+	display: block;	
+	border-radius: 50%;
+}
+.yinyang:after
+{
+	width: 75%;
+	height: 75%;
+	animation: inner-size 3s ease-in-out infinite;
+	animation-delay: -1.5s;
+	background: radial-gradient(ellipse at center, black 0%, black 25%, white 25%, white 100%);
+}
+
+#left-side .yinyang:after{
+    background: radial-gradient(ellipse at center, white 0%, white 25%, black 25%, black 100%);
+}
+
+.yinyang:before
+{
+	width: 25%;
+	height: 25%;
+	animation: inner-size 3s ease-in-out infinite;
+	background: radial-gradient(ellipse at center, white 0%, white 25%, black 25%, black 100%);
+}
+
+#left-side .yinyang:before{
+    background: radial-gradient(ellipse at center, black 0%, black 25%, white 25%, white 100%);
+}
+
+@keyframes inner-size {
+	0%, 100% {
+		width: 75%;
+		height: 75%;
+	}
+	
+	50% {
+		width: 25%;
+		height: 25%;
+	}	
+}
+
+@keyframes rotate {
+	to {transform: rotate(-360deg)}
+}
+
+
+/* .body{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 100vh;
+    left: 0;
+} */

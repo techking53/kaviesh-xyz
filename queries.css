@@ -1,0 +1,52 @@
+@media (max-width:1100px) {
+    .yinyang{
+        margin-top: 30vh;
+    }
+}
+@media (max-width:900px){
+    .yinyang{
+        width: 18vw;
+        height: 18vw;
+        margin-top: 25vh;
+        margin-left: 10%;
+    }
+}
+@media (max-width:700px){
+    .slider h2{
+        font-size: 10rem;
+        margin: 0 15vw 30vh 15vw;
+    } .fancy {
+        font-size: 15rem;
+    }
+    .yinyang{
+        border: 3px solid white;
+        width: 24vw;
+        height: 24vw;
+        margin: 25vh 0 0 0%;
+    }
+    #left-side .yinyang{
+        border: 3px solid black;
+    }
+}
+@media (max-width:644px){
+    #left-side{
+        width: 67.34%;
+        height: 100vh;
+    }
+    .slider h2{
+        width: 100vw;
+        height: 50vh;
+        margin: 0 23vw 10vh 15vw;
+        padding-top: 5vh;
+    }
+    .yinyang{
+        margin-top: 18vh;
+    }
+}
+@media (max-width:400px){
+    .yinyang{
+        width: 30vw;
+        height: 30vw;
+        margin: 25vh 0 0 -5%;
+    }
+}
