@@ -43,7 +43,7 @@ margin:0;
 
 #left-side .fancy{
     font-family: 'Dancing Script', cursive;
-    color: var(--yellow);
+    color: var(--cyan);
 }
 .right-side .fancy{
     font-family: 'VT323', monospace;
