@@ -9,7 +9,7 @@ margin:0;
     --mint: #00FFC5;
     --navy: #035E7B;
     --yellow: #FFFC31;
-    --red: #FF3131;
+    --purple: #5e0a8f;
 }
 
 .side{
@@ -43,11 +43,11 @@ margin:0;
 
 #left-side .fancy{
     font-family: 'Dancing Script', cursive;
-    color: var(--cyan);
+    color: var(--yellow);
 }
 .right-side .fancy{
     font-family: 'VT323', monospace;
-    color: #5e0a8f;
+    color: var(--purple);
 }
 .fancy{
     font-size: 12rem;
