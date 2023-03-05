@@ -34,7 +34,7 @@ margin:0;
     color: var(--black);
 }
 
-.slider h2{
+.slider h1{
     font-family: 'Source Code Pro', monospace;
     width: 80vw;
     margin: 0 23vw 30vh 23vw;
