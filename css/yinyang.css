@@ -25,7 +25,7 @@
     border: 5px solid var(--black);
     box-shadow: 6px 6px 27px 4px rgba(255, 255, 255, 0.16);
     margin-bottom: -15px;
-	margin-top: 18vh;
+	margin-top: calc(20vh - 10px);
 }
 
 .yinyang:after, .yinyang:before
