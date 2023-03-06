@@ -7,3 +7,7 @@
     transform: translateX(100%);
     background-color: var(--coffee-mild);
 }
+.javaphile h1{
+    font-size: 8rem;
+    margin: 30vh auto;
+}
