@@ -9,5 +9,6 @@
 }
 .javaphile h1{
     font-size: 8rem;
-    margin: 20vh 0 0 20vw;
+    margin: 20vh 0 0 15vw;
+    color: var(--coffee-text);
 }
