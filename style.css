@@ -24,9 +24,9 @@ html{
     position: absolute;
     display: grid;
     place-items: center;
+    overflow: hidden;
 }
 #left-side{
-    overflow: hidden;
     z-index: 2;
     background-color: var(--black);
     width: 50%;
