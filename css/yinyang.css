@@ -24,7 +24,8 @@
     background: linear-gradient(to bottom,var(--white) 0%,var(--white) 50%,var(--black) 50%,var(--black) 100%);
     border: 5px solid var(--black);
     box-shadow: 6px 6px 27px 4px rgba(255, 255, 255, 0.16);
-    margin-bottom: -5px;
+    margin-bottom: -15px;
+	margin-top: calc(20vh - 10px);
 }
 
 .yinyang:after, .yinyang:before
