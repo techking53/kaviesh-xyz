@@ -11,6 +11,11 @@
         margin-left: 10%;
     }
 }
+@media (max-width:800px){
+    #left-side .yinyang{
+        margin-top: calc(25vh - 5px);
+    }
+}
 @media (max-width:700px){
     .slider h1{
         font-size: 10rem;
@@ -22,7 +27,7 @@
         border: 3px solid white;
         width: 24vw;
         height: 24vw;
-        margin: 25vh 0 0 0%;
+        margin: 25vh 0 0 10%;
     }
     #left-side .yinyang{
         border: 3px solid black;
@@ -39,14 +44,31 @@
         margin: 0 23vw 10vh 15vw;
         padding-top: 5vh;
     }
-    .yinyang{
+    .yinyang, #left-side .yinyang{
         margin-top: 18vh;
+    }#left-side h1{
+        margin-top: 15px;
     }
 }
-@media (max-width:400px){
-    .yinyang{
+@media (max-width:500px){
+    .slider #next{
+        bottom: 50vh;
+    }
+}
+@media (max-width:410px){
+    .yinyang, #left-side .yinyang{
         width: 30vw;
         height: 30vw;
-        margin: 25vh 0 0 -5%;
+        margin: 20vh 0 0 -5%;
+    }.slider #next{
+        right: 10vw;
+        padding: 5rem;
+    }#left-side h1{
+        margin-top: 0;
+    }
+}
+@media (max-width:280px){
+    .yinyang, #left-side .yinyang{
+        margin-top: 25vh;
     }
 }

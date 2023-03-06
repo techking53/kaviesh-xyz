@@ -26,7 +26,6 @@ margin:0;
     width: 50%;
     color: var(--white);
     max-width: 100%;
-    max-width: 100%;
 }
 
 .right-side{
@@ -39,6 +38,10 @@ margin:0;
     width: 80vw;
     margin: 0 23vw 30vh 23vw;
     font-size: 8rem;
+}
+
+#left-side h1{
+    margin-bottom: calc(30vh - 10px);
 }
 
 #left-side .fancy{
@@ -57,9 +60,6 @@ margin:0;
 .yincont{
     width: 100vw;
     margin: 0
-}
-#left-side.yincont{
-    margin-top: 1px;
 }
 .yinyang
 {
@@ -83,6 +83,7 @@ margin:0;
     background: linear-gradient(to bottom,white 0%,white 50%,black 50%,black 100%);
     border: 5px solid black;
     box-shadow: 6px 6px 27px 4px rgba(255, 255, 255, 0.16);
+    margin-bottom: -15px;
 }
 
 .yinyang:after, .yinyang:before
@@ -133,10 +134,106 @@ margin:0;
 }
 
 
-/* .body{
+.javaphile{
     height: 100vh;
     width: 100vw;
     position: absolute;
-    top: 100vh;
+    top: 0;
     left: 0;
-} */
+    transform: translateX(100%);
+    background-color: #EDDFB3;
+}
+
+body{
+    overflow: hidden;
+}
+
+section:not(.active){
+    display: none;
+}
+
+.slider #next{
+    font-size: 5.6rem;
+    position: absolute;
+    right: 7vw;
+    bottom: 40vh;
+    transform: translate(50%, 50%);
+    border-radius: 100%;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 65%);
+    padding: 4rem;
+    color: black;
+    z-index: 4;
+    cursor: pointer;
+    animation: bloom 0.3s;
+}
+
+@keyframes bloom{
+    0%{
+        background: radial-gradient(circle, var(--purple) 0%, rgba(0,0,0,0) 65%);
+        padding: 4rem;
+    }
+    12%{
+        padding: 3rem;
+    }
+    25%{
+        padding: 2rem;
+    }
+    38%{
+        padding: 1rem;
+    }
+    50%{
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 65%);
+        padding: 0rem;
+    }
+    62%{
+        padding: 1rem;
+    }
+    75%{
+        padding: 2rem;
+    }
+    88%{
+        padding: 3rem;
+    }
+    100%{
+        padding: 4rem;
+    }
+}
+
+.slider  #left-side #next{
+    margin-top: -24px;
+}
+
+.slider #next:hover{
+    animation: flash 0.8s infinite;
+}
+
+@keyframes flash{
+    0%,100%{
+        color: var(--purple);
+        background: radial-gradient(circle, var(--purple) 0%, rgba(0,0,0,0) 65%);
+        padding: 6rem;
+    }
+    50%{
+        color: var(--cyan);
+        background: radial-gradient(circle, var(--cyan) 0%, rgba(0,0,0,0) 65%);
+        padding: 4rem;
+    }
+}
+
+@keyframes move-left{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+@keyframes come-from-right{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
