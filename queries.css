@@ -51,7 +51,7 @@
     }
 }
 @media (max-width:500px){
-    .slider .next,.javaphile .next{
+    .slider .next, .javaphile .back{
         bottom: 50vh;
     }
 }
@@ -65,7 +65,7 @@
         padding: 5rem;
     }#left-side h1{
         margin-top: 0;
-    }.javaphile .next{
+    }.javaphile .back{
         left: 10vw;
         padding: 5rem;
         font-size: 6rem;
