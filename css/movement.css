@@ -90,13 +90,13 @@
     bottom: 40vh;
     border-radius: 100%;
     padding: 4rem;
-    color: var(--black);
+    color: var(--coffee-mild);
     z-index: 4;
     cursor: pointer;
     transform: translate(-50%,50%);
 }
 .javaphile .back:hover{
-    background: radial-gradient(circle, var(--coffee-dark) 0%, var(--transparent) 65%);
+    background: radial-gradient(circle, var(--coffee-mild) 0%, var(--transparent) 65%);
     color: var(--coffee-light);
     animation: grow 1s infinite;
 }
