@@ -1,0 +1,27 @@
+*{
+    margin:0;
+}
+
+html{
+    font-size: 10px
+}
+
+:root{
+    --black: #000;
+    --white: #fff;
+    --cyan: #67e7d7;
+    --coffee-light: #F7ECDE;
+    --coffee-mild: #EDDFB3;
+    --coffee-dark: #603601;
+    --navy: #035E7B;
+    --purple: #5e0a8f;
+    --transparent: rgba(0,0,0,0)
+}
+
+body{
+    overflow: hidden;
+}
+
+section:not(.active){
+    display: none;
+}

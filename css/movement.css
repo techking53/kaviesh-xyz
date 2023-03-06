@@ -1,0 +1,129 @@
+.slider .next{
+    font-size: 5.6rem;
+    position: absolute;
+    right: 7vw;
+    bottom: 40vh;
+    transform: translate(50%, 50%);
+    border-radius: 100%;
+    background: var(--white);
+    background: radial-gradient(circle, var(--white) 0%, var(--transparent) 65%);
+    padding: 4rem;
+    color: var(--black);
+    z-index: 4;
+    cursor: pointer;
+    animation: bloom 0.3s;
+}
+
+@keyframes bloom{
+    0%{
+        background: radial-gradient(circle, var(--purple) 0%, var(--transparent) 65%);
+        padding: 4rem;
+    }
+    12%{
+        padding: 3rem;
+    }
+    25%{
+        padding: 2rem;
+    }
+    38%{
+        padding: 1rem;
+    }
+    50%{
+        background: radial-gradient(circle, var(--white) 0%, var(--transparent) 65%);
+        padding: 0rem;
+    }
+    62%{
+        padding: 1rem;
+    }
+    75%{
+        padding: 2rem;
+    }
+    88%{
+        padding: 3rem;
+    }
+    100%{
+        padding: 4rem;
+    }
+}
+
+.slider  #left-side .next{
+    margin-top: -24px;
+}
+
+.slider .next:hover{
+    animation: flash 0.8s infinite;
+}
+
+@keyframes flash{
+    0%,100%{
+        color: var(--purple);
+        background: radial-gradient(circle, var(--purple) 0%, var(--transparent) 65%);
+        padding: 6rem;
+    }
+    50%{
+        color: var(--cyan);
+        background: radial-gradient(circle, var(--cyan) 0%, var(--transparent) 65%);
+        padding: 4rem;
+    }
+}
+
+@keyframes move-left{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+@keyframes come-from-right{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+.javaphile .back{
+    font-size: 5.6rem;
+    position: absolute;
+    left: 7vw;
+    bottom: 40vh;
+    border-radius: 100%;
+    padding: 4rem;
+    color: var(--black);
+    z-index: 4;
+    cursor: pointer;
+    transform: translate(-50%,50%);
+}
+.javaphile .back:hover{
+    background: radial-gradient(circle, var(--coffee-dark) 0%, var(--transparent) 65%);
+    color: var(--coffee-light);
+    animation: grow 1s infinite;
+}
+@keyframes grow{
+    0%,100%{
+        font-size: 5.6rem;
+        padding: 4rem;
+    }
+    50%{
+        font-size: 7rem;
+        padding: 5rem;
+    }
+}
+
+@keyframes move-right{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+@keyframes come-from-left{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
