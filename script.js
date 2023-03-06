@@ -23,10 +23,13 @@ sliderNext.onclick=e=>{
 }
 
 javaBack.onclick=e=>{
-    javaphile.style.animation = "move-rightt 1s ease-in-out"
+    javaphile.style.animation = "move-right 1s ease-in-out"
     slider.style.animation = "come-from-left 1s ease-in-out"
     slider.classList.add("active")
     javaphile.style.transform = "translateX(100%)"
     slider.style.transform = "translateX(0%)"
-    setTimeout(()=>{javaphile.classList.remove("active")},1000)
+    
+    setTimeout(()=>{
+        javaphile.classList.remove("active");
+    },1000)
 }
