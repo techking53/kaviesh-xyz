@@ -1,15 +1,21 @@
 *{
-margin:0;
-}html{font-size: 10px}
+    margin:0;
+}
+
+html{
+    font-size: 10px
+}
 
 :root{
     --black: #000;
     --white: #fff;
     --cyan: #67e7d7;
-    --mint: #00FFC5;
+    --coffee-light: #F7ECDE;
+    --coffee-mild: #EDDFB3;
+    --coffee-dark: #603601;
     --navy: #035E7B;
-    --yellow: #FFFC31;
     --purple: #5e0a8f;
+    --transparent: rgba(0,0,0,0)
 }
 
 .side{
@@ -66,8 +72,8 @@ margin:0;
 	width: 12vw;
 	height: 12vw;
 	border-radius: 50%;
-	background: linear-gradient(to bottom,black 0%,black 50%,white 50%,white 100%);
-	border: 5px solid white;
+	background: linear-gradient(to bottom,var(--black) 0%,var(--black) 50%,var(--white) 50%,var(--white) 100%);
+	border: 5px solid var(--white);
 	box-shadow: 6px 6px 27px 4px rgba(0,0,0,0.16);
 	display: block;
 	display: flex;
@@ -80,8 +86,8 @@ margin:0;
 }
 
 #left-side .yinyang{
-    background: linear-gradient(to bottom,white 0%,white 50%,black 50%,black 100%);
-    border: 5px solid black;
+    background: linear-gradient(to bottom,var(--white) 0%,var(--white) 50%,var(--black) 50%,var(--black) 100%);
+    border: 5px solid var(--black);
     box-shadow: 6px 6px 27px 4px rgba(255, 255, 255, 0.16);
     margin-bottom: -15px;
 }
@@ -98,11 +104,11 @@ margin:0;
 	height: 75%;
 	animation: inner-size 3s ease-in-out infinite;
 	animation-delay: -1.5s;
-	background: radial-gradient(ellipse at center, black 0%, black 25%, white 25%, white 100%);
+	background: radial-gradient(ellipse at center, var(--black) 0%, var(--black) 25%, var(--white) 25%, var(--white) 100%);
 }
 
 #left-side .yinyang:after{
-    background: radial-gradient(ellipse at center, white 0%, white 25%, black 25%, black 100%);
+    background: radial-gradient(ellipse at center, var(--white) 0%, var(--white) 25%, var(--black) 25%, var(--black) 100%);
 }
 
 .yinyang:before
@@ -110,11 +116,11 @@ margin:0;
 	width: 25%;
 	height: 25%;
 	animation: inner-size 3s ease-in-out infinite;
-	background: radial-gradient(ellipse at center, white 0%, white 25%, black 25%, black 100%);
+	background: radial-gradient(ellipse at center, var(--white) 0%, var(--white) 25%, var(--black) 25%, var(--black) 100%);
 }
 
 #left-side .yinyang:before{
-    background: radial-gradient(ellipse at center, black 0%, black 25%, white 25%, white 100%);
+    background: radial-gradient(ellipse at center, var(--black) 0%, var(--black) 25%, var(--white) 25%, var(--white) 100%);
 }
 
 @keyframes inner-size {
@@ -134,15 +140,6 @@ margin:0;
 }
 
 
-.javaphile{
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(100%);
-    background-color: #EDDFB3;
-}
 
 body{
     overflow: hidden;
@@ -152,17 +149,17 @@ section:not(.active){
     display: none;
 }
 
-.slider #next{
+.slider .next{
     font-size: 5.6rem;
     position: absolute;
     right: 7vw;
     bottom: 40vh;
     transform: translate(50%, 50%);
     border-radius: 100%;
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 65%);
+    background: var(--white);
+    background: radial-gradient(circle, var(--white) 0%, var(--transparent) 65%);
     padding: 4rem;
-    color: black;
+    color: var(--black);
     z-index: 4;
     cursor: pointer;
     animation: bloom 0.3s;
@@ -170,7 +167,7 @@ section:not(.active){
 
 @keyframes bloom{
     0%{
-        background: radial-gradient(circle, var(--purple) 0%, rgba(0,0,0,0) 65%);
+        background: radial-gradient(circle, var(--purple) 0%, var(--transparent) 65%);
         padding: 4rem;
     }
     12%{
@@ -183,7 +180,7 @@ section:not(.active){
         padding: 1rem;
     }
     50%{
-        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 65%);
+        background: radial-gradient(circle, var(--white) 0%, var(--transparent) 65%);
         padding: 0rem;
     }
     62%{
@@ -200,23 +197,23 @@ section:not(.active){
     }
 }
 
-.slider  #left-side #next{
+.slider  #left-side .next{
     margin-top: -24px;
 }
 
-.slider #next:hover{
+.slider .next:hover{
     animation: flash 0.8s infinite;
 }
 
 @keyframes flash{
     0%,100%{
         color: var(--purple);
-        background: radial-gradient(circle, var(--purple) 0%, rgba(0,0,0,0) 65%);
+        background: radial-gradient(circle, var(--purple) 0%, var(--transparent) 65%);
         padding: 6rem;
     }
     50%{
         color: var(--cyan);
-        background: radial-gradient(circle, var(--cyan) 0%, rgba(0,0,0,0) 65%);
+        background: radial-gradient(circle, var(--cyan) 0%, var(--transparent) 65%);
         padding: 4rem;
     }
 }
@@ -232,6 +229,60 @@ section:not(.active){
 @keyframes come-from-right{
     0%{
         transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+.javaphile{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    background-color: var(--coffee-mild);
+}
+
+.javaphile .back{
+    font-size: 5.6rem;
+    position: absolute;
+    left: 7vw;
+    bottom: 40vh;
+    border-radius: 100%;
+    padding: 4rem;
+    color: var(--black);
+    z-index: 4;
+    cursor: pointer;
+    transform: translate(-50%,50%);
+}
+.javaphile .back:hover{
+    background: radial-gradient(circle, var(--coffee-dark) 0%, var(--transparent) 65%);
+    color: var(--coffee-light);
+    animation: grow 1s infinite;
+}
+@keyframes grow{
+    0%,100%{
+        font-size: 5.6rem;
+        padding: 4rem;
+    }
+    50%{
+        font-size: 7rem;
+        padding: 5rem;
+    }
+}
+
+@keyframes move-right{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+@keyframes come-from-left{
+    0%{
+        transform: translateX(-100%);
     }
     100%{
         transform: translateX(0%);
