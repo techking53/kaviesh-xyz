@@ -33,6 +33,6 @@ document.querySelector(".javaphile .back").onclick=e=>{
     
     setTimeout(()=>{
         javaphile.classList.remove("active");
-        document.body.style.touchAction = "none"
+        document.body.style.touchAction = "auto"
     },1000)
 }
