@@ -11,15 +11,20 @@ const slider=document.querySelector(".slider")
 const javaphile=document.querySelector(".javaphile")
 
 document.querySelector(".slider .next").onclick=e=>{
+    document.body.style.touchAction = "none" 
     slider.style.animation = "move-left 1s ease-in-out"
     javaphile.style.animation = "come-from-right 1s ease-in-out"
     javaphile.classList.add("active")
     slider.style.transform = "translateX(-100%)"
     javaphile.style.transform = "translateX(0%)"
-    setTimeout(()=>{slider.classList.remove("active")},1000)
+    setTimeout(()=>{
+        slider.classList.remove("active")
+        document.body.style.touchAction = "auto" 
+    },1000)
 }
 
 document.querySelector(".javaphile .back").onclick=e=>{
+    document.body.style.touchAction = "none"
     javaphile.style.animation = "move-right 1s ease-in-out"
     slider.style.animation = "come-from-left 1s ease-in-out"
     slider.classList.add("active")
@@ -28,5 +33,6 @@ document.querySelector(".javaphile .back").onclick=e=>{
     
     setTimeout(()=>{
         javaphile.classList.remove("active");
+        document.body.style.touchAction = "none"
     },1000)
 }
