@@ -6,7 +6,7 @@ const handleMouseMove =  e =>{
 document.onmousemove=e=> handleMouseMove(e)
 document.ontouchmove=e=> handleMouseMove(e.touches[0])
 
-
+const blanket=document.querySelector(".blanket")
 const slider=document.querySelector(".slider")
 const javaphile=document.querySelector(".javaphile")
 
@@ -33,5 +33,10 @@ function trans(pre,nex,an1,an2) {
     },1100)
 }
 
-slider.querySelector(".next").onclick=i=>{trans(slider,javaphile,"move-left","come-from-right")}
-javaphile.querySelector(".back").onclick=i=>{trans(javaphile,slider,"move-right","come-from-left")}
+slider.querySelector(".next").onclick=i=>{
+    trans(slider,javaphile,"move-left","come-from-right")
+    setTimeout(()=>{blanket.classList.add("animated")},600)
+}
+javaphile.querySelector(".back").onclick=i=>{
+    trans(javaphile,slider,"move-right","come-from-left")
+}
