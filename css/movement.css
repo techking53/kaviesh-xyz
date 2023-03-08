@@ -87,7 +87,7 @@
     font-size: 5.6rem;
     position: absolute;
     left: 7vw;
-    bottom: 40vh;
+    bottom: 50vh;
     border-radius: 100%;
     padding: 4rem;
     color: var(--coffee-mild);
@@ -126,4 +126,7 @@
     100%{
         transform: translateX(0%);
     }
+}
+.disable{
+    pointer-events: none;
 }

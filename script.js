@@ -11,7 +11,8 @@ const slider=document.querySelector(".slider")
 const javaphile=document.querySelector(".javaphile")
 
 function trans(pre,nex,an1,an2) {
-    document.querySelectorAll("*").forEach(e=>{e.style.touchAction = "none"})
+    document.body.style.touchAction = "none"
+    document.querySelectorAll(".t-butt").forEach(e=>{e.classList.add("disable")})
     pre.style.animation = an1+" 1s ease-in-out"
     nex.style.animation = an2+" 1s ease-in-out"
     nex.classList.add("active")
@@ -29,13 +30,17 @@ function trans(pre,nex,an1,an2) {
     nex.style.transform = "translateX(0%)"
     setTimeout(()=>{
         pre.classList.remove("active")
-        document.querySelectorAll("*").forEach(e=>{e.style.touchAction = "auto"})
+        document.body.style.touchAction = "auto"
+        document.querySelectorAll(".t-butt").forEach(e=>{e.classList.remove("disable")})
     },1100)
 }
 
 slider.querySelector(".next").onclick=i=>{
     trans(slider,javaphile,"move-left","come-from-right")
-    setTimeout(()=>{blanket.classList.add("animated")},600)
+    
+    setTimeout(()=>{
+        blanket.classList.contains("animated") ? blanket.style.animation="none" : blanket.classList.add("animated")
+    },200)
 }
 javaphile.querySelector(".back").onclick=i=>{
     trans(javaphile,slider,"move-right","come-from-left")

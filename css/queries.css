@@ -53,13 +53,15 @@
 @media (max-width:500px){
     .slider .next, .javaphile .back{
         bottom: 50vh;
+    }.javaphile .back{
+        transform: translate(-50%, 50%);
     }
 }
 @media (max-width:410px){
     .yinyang, #left-side .yinyang{
         width: 30vw;
         height: 30vw;
-        margin: 20vh 0 0 -5%;
+        margin: 25vh 0 0 -5%;
     }.slider .next{
         right: 10vw;
         padding: 5rem;
@@ -69,6 +71,9 @@
         left: 10vw;
         padding: 5rem;
         font-size: 6rem;
+    }
+    .j-iflex.def{
+        padding-left: 20vw;
     }
 
     @keyframes bloom{

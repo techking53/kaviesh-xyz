@@ -15,7 +15,7 @@
     color: var(--coffee-dark);
     letter-spacing: 0.5rem;
 }
-.j-iflex{
+.j-iflex.def{
     font-family: 'Yanone Kaffeesatz', sans-serif;
     letter-spacing: 0.1rem;
     font-size: 4rem;
