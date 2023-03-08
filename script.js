@@ -10,29 +10,28 @@ document.ontouchmove=e=> handleMouseMove(e.touches[0])
 const slider=document.querySelector(".slider")
 const javaphile=document.querySelector(".javaphile")
 
-document.querySelector(".slider .next").onclick=e=>{
-    document.body.style.touchAction = "none" 
-    slider.style.animation = "move-left 1s ease-in-out"
-    javaphile.style.animation = "come-from-right 1s ease-in-out"
-    javaphile.classList.add("active")
-    slider.style.transform = "translateX(-100%)"
-    javaphile.style.transform = "translateX(0%)"
+function trans(pre,nex,an1,an2) {
+    document.querySelectorAll("*").forEach(e=>{e.style.touchAction = "none"})
+    pre.style.animation = an1+" 1s ease-in-out"
+    nex.style.animation = an2+" 1s ease-in-out"
+    nex.classList.add("active")
+    switch (an1) {
+        case "move-right":
+            tv= "-100%"
+            break;
+        case "move-left":
+            tv= "100%"
+            break;
+        default:
+            break;
+    }
+    pre.style.transform = "translateX(" + tv + ")"
+    nex.style.transform = "translateX(0%)"
     setTimeout(()=>{
-        slider.classList.remove("active")
-        document.body.style.touchAction = "auto" 
-    },1000)
+        pre.classList.remove("active")
+        document.querySelectorAll("*").forEach(e=>{e.style.touchAction = "auto"})
+    },1100)
 }
 
-document.querySelector(".javaphile .back").onclick=e=>{
-    document.body.style.touchAction = "none"
-    javaphile.style.animation = "move-right 1s ease-in-out"
-    slider.style.animation = "come-from-left 1s ease-in-out"
-    slider.classList.add("active")
-    javaphile.style.transform = "translateX(100%)"
-    slider.style.transform = "translateX(0%)"
-    
-    setTimeout(()=>{
-        javaphile.classList.remove("active");
-        document.body.style.touchAction = "auto"
-    },1000)
-}
+slider.querySelector(".next").onclick=i=>{trans(slider,javaphile,"move-left","come-from-right")}
+javaphile.querySelector(".back").onclick=i=>{trans(javaphile,slider,"move-right","come-from-left")}
