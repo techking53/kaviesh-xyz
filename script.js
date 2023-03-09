@@ -37,7 +37,16 @@ function trans(pre,nex,an1,an2) {
 
 slider.querySelector(".next").onclick=i=>{
     trans(slider,javaphile,"move-left","come-from-right")
-    
+    n=1
+    document.querySelectorAll(".j-iflex.me h3").forEach((e)=>{
+        e.classList.contains("anted") ? e.style.animation="none" : e.classList.add("anted")
+        edelay=(400+500*n)
+        e.style.animationDelay=edelay+"ms"
+        setTimeout((e) => {
+            e.style.transform="translateX(0)"
+        }, edelay+100,e);
+        n++
+    })
     setTimeout(()=>{
         blanket.classList.contains("animated") ? blanket.style.animation="none" : blanket.classList.add("animated")
     },200)

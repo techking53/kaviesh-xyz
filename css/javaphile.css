@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&family=Yanone+Kaffeesatz&display=swap');
 
 .javaphile{
     height: 100vh;
@@ -8,6 +8,7 @@
     left: 0;
     transform: translateX(100%);
     background-color: var(--coffee-light);
+    overflow: hidden;
 }
 .javaphile h1{
     font-size: 20rem;
@@ -52,5 +53,38 @@
     100%{
         height: 0vh;
         border-top: 0.5rem solid var(--coffee-dark);
+    }
+}
+.j-flex{
+    display: flex;
+}
+.j-iflex.me{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    justify-self: end;
+    flex-grow: 1;
+    padding-right: 5vw;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 7rem;
+    color: var(--eggplant);
+}
+
+.me h3{
+    display: none;
+}
+
+h3.anted{
+    animation: slide 1000ms ease-in-out;
+    display: block;
+    transform: translateX(100vh);
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(100%);
+    }100%{
+        transform: translateX(0%);
     }
 }

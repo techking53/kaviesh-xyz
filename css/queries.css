@@ -34,6 +34,24 @@
     }
 }
 @media (max-width:644px){
+    .j-flex{
+        flex-direction: column;
+        gap: 10vh;
+    }.j-iflex.def{
+        height: auto;
+        padding-top: 15vh;
+    }.j-iflex.me{
+        font-size: 10rem;
+    }
+    .j-iflex.def{
+        font-size: 6rem;
+    }
+    .javaphile .phonetics{
+        font-size: 5rem;
+    }
+    .javaphile h1{
+        margin-bottom: 1.5vh;
+    }
     #left-side{
         width: 67.7%;
         height: 100vh;
@@ -51,6 +69,12 @@
     }
 }
 @media (max-width:500px){
+    .j-iflex.def{
+        padding-top: 17vh;
+    }
+    .j-flex{
+        gap: 15vh;
+    }
     .slider .next, .javaphile .back{
         bottom: 50vh;
     }.javaphile .back{
@@ -58,6 +82,12 @@
     }
 }
 @media (max-width:410px){
+    .j-iflex.def{
+        padding-top: 22vh;
+    }
+    .j-flex{
+        gap: 15vh;
+    }
     .yinyang, #left-side .yinyang{
         width: 30vw;
         height: 30vw;
