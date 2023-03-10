@@ -15,6 +15,12 @@
     #left-side .yinyang{
         margin-top: calc(25vh - 5px);
     }
+    .tile:before {
+        background-color: rgb(15, 15, 15);
+        content: "";
+        inset: 0.625px;
+        position: absolute;
+      }
 }
 @media (max-width:700px){
     .slider h1{
