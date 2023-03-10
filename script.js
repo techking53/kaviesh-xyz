@@ -60,7 +60,7 @@ const createTiles = quantity => {
 const createGrid = () => {
     wrapper.innerHTML = "";
     
-    const size = window.innerWidth > 800 ? 100 : 50;
+    const size = window.innerWidth > 800 ? 80 : 50;
     
     columns = Math.floor(window.innerWidth / size);
     rows = Math.floor(window.innerHeight / size);
