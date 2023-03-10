@@ -1,7 +1,7 @@
 function rem() {
     document.querySelector("html").style.fontSize = window.innerWidth>645 ? window.innerWidth/153.6+"px" : window.innerWidth/92+"px"
 }
-
+rem()
 // Slider Effect
 
 const handleMouseMove =  e =>{
