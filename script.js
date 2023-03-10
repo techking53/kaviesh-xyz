@@ -21,24 +21,6 @@ let columns = 0,
 rows = 0,
 toggled = false;
 
-const toggle = () => {
-    toggled = !toggled;
-    
-    document.querySelector(".tiles-c").classList.toggle("toggled");
-}
-const handleOnClick = index => {
-    toggle();
-    
-    anime({
-        targets: ".tile",
-        opacity: toggled ? 0 : 1,
-        delay: anime.stagger(50, {
-            grid: [columns, rows],
-            from: index
-        })
-    });
-}
-
 const createTile = index => {
     const tile = document.createElement("div");
     
@@ -46,15 +28,21 @@ const createTile = index => {
     
     tile.style.opacity = toggled ? 0 : 1;
     
-    tile.onclick = e => handleOnClick(index);
+    tile.onclick = e => {
+        toggled = !toggled;
+        document.querySelector(".tiles-c").classList.toggle("toggled");
+        
+        anime({
+            targets: ".tile",
+            opacity: toggled ? 0 : 1,
+            delay: anime.stagger(50, {
+                grid: [columns, rows],
+                from: index
+            })
+        });
+    };
     
     return tile;
-}
-
-const createTiles = quantity => {
-    Array.from(Array(quantity)).map((tile, index) => {
-        wrapper.appendChild(createTile(index));
-    });
 }
 
 const createGrid = () => {
@@ -68,7 +56,9 @@ const createGrid = () => {
     wrapper.style.setProperty("--columns", columns);
     wrapper.style.setProperty("--rows", rows);
     
-    createTiles(columns * rows);
+    Array.from(Array(columns*rows)).map((tile, index) => {
+        wrapper.appendChild(createTile(index));
+    });
 }
 
 createGrid();
