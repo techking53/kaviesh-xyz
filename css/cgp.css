@@ -64,6 +64,6 @@
   .tile:before {
     background-color: rgb(15, 15, 15);
     content: "";
-    inset: 0.5px;
+    inset: 1px;
     position: absolute;
   }
