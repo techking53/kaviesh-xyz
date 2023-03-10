@@ -91,7 +91,7 @@
     border-radius: 100%;
     padding: 4rem;
     color: var(--coffee-mild);
-    z-index: 4;
+    z-index: 6;
     cursor: pointer;
     transform: translate(-50%,50%);
 }
