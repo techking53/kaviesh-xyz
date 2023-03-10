@@ -130,3 +130,70 @@
 .disable{
     pointer-events: none;
 }
+
+.javaphile .next{
+    font-size: 5.6rem;
+    position: absolute;
+    bottom: 10vh;
+    right: 50vw;
+    transform: translate(50%, 50%);
+    border-radius: 100%;
+    padding: 4rem;
+    z-index: 4;
+    cursor: pointer;
+    color: var(--coffee-mild);
+}
+.javaphile .next:hover{
+    background: radial-gradient(circle, var(--coffee-mild) 0%, var(--transparent) 65%);
+    color: var(--coffee-light);
+    animation: grow 1s infinite;
+}
+@keyframes move-up{
+    0%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+}
+@keyframes come-from-down{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+.cgp .back{
+    font-size: 5.6rem;
+    position: absolute;
+    top: 10vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    padding: 4rem;
+    z-index: 4;
+    cursor: pointer;
+    color: var(--white);
+    animation: bloom 0.3s;
+}
+.cgp .back:hover{
+    color: var(--white);
+    animation: flash 1s infinite;
+}
+@keyframes move-down{
+    0%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+@keyframes come-from-up{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
