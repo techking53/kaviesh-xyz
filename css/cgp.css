@@ -58,11 +58,11 @@
   }
   
   .tile:hover:before {
-    background-color: rgb(30, 30, 30);
+    opacity: 0.5;
   }
   
   .tile:before {
-    background-color: rgb(15, 15, 15);
+    background-color: var(--black);
     content: "";
     inset: 1px;
     position: absolute;
