@@ -21,6 +21,10 @@
         inset: 0.625px;
         position: absolute;
       }
+      .cgp .logo{
+        height: 300px;
+        top: 50vh;
+      }
 }
 @media (max-width:700px){
     .slider h1{

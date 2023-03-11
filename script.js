@@ -25,6 +25,7 @@ toggled = true;
 function anima(index) {
     toggled = !toggled;
     document.querySelector(".tiles-c").classList.toggle("toggled");
+    document.querySelector(".cgp .logo").classList.toggle("visible");
     
     anime({
         targets: ".tile",
