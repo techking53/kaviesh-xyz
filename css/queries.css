@@ -61,6 +61,9 @@
     .n{
         font-size: 10rem;
     }
+    .javaphile .back,.slider .next{
+        bottom: 45vh;
+    }
 }
 @media (max-width:644px){
     .j-flex{
