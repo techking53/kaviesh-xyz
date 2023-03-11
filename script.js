@@ -19,7 +19,21 @@ const wrapper = document.getElementById("tiles");
 
 let columns = 0,
 rows = 0,
-toggled = false;
+toggled = true;
+
+function anima(index) {
+    toggled = !toggled;
+    document.querySelector(".tiles-c").classList.toggle("toggled");
+    
+    anime({
+        targets: ".tile",
+        opacity: toggled ? 0 : 1,
+        delay: anime.stagger(50, {
+            grid: [columns, rows],
+            from: index
+        })
+    });
+}
 
 const createTile = index => {
     const tile = document.createElement("div");
@@ -28,19 +42,7 @@ const createTile = index => {
     
     tile.style.opacity = toggled ? 0 : 1;
     
-    tile.onclick = e => {
-        toggled = !toggled;
-        document.querySelector(".tiles-c").classList.toggle("toggled");
-        
-        anime({
-            targets: ".tile",
-            opacity: toggled ? 0 : 1,
-            delay: anime.stagger(50, {
-                grid: [columns, rows],
-                from: index
-            })
-        });
-    };
+    tile.onclick = e => anima(index);
     
     return tile;
 }
@@ -98,7 +100,7 @@ function trans(pre,nex,an1,an2) {
         document.querySelectorAll(".t-butt").forEach(e=>{e.classList.remove("disable")})
     },1100)
     if (nex==javaphile) {
-        n=1
+        let n =1
         document.querySelectorAll(".j-iflex.me h3").forEach((e)=>{
             e.classList.contains("anted") ? e.style.animation="none" : e.classList.add("anted")
             edelay=(400+500*n)
@@ -111,6 +113,15 @@ function trans(pre,nex,an1,an2) {
         setTimeout(()=>{
             blanket.classList.contains("animated") ? blanket.style.animation="none" : blanket.classList.add("animated")
         },200)
+    }
+    if (nex==cgp) {
+        if(!cgp.classList.contains("animad")){
+            setTimeout(()=>{
+                console.log(Math.ceil(columns/2));
+                anima((rows%2==1) ? ((Math.ceil(rows/2)*columns)+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1) : (rows/2*columns+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1))
+                cgp.classList.add("animad")
+            },500)
+        }
     }
 }
 
