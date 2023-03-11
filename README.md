@@ -1,2 +1,3 @@
-# kaviesh-xyz
-My portfolio basically. 
+# [kaviesh.xyz](kaviesh.xyz "kaviesh.xyz")
+
+This website is the portal to my life.
