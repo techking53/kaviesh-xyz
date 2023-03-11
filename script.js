@@ -126,7 +126,7 @@ function trans(pre,nex,an1,an2) {
                 console.log(Math.ceil(columns/2));
                 anima((rows%2==1) ? ((Math.ceil(rows/2)*columns)+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1) : (rows/2*columns+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1))
                 cgp.classList.add("animad")
-            },screenWidth>800?800:1000)
+            },screenWidth>800?1200:1500)
         }
     }
 }
