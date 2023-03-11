@@ -66,9 +66,9 @@ const createGrid = () => {
 
 createGrid();
 window.onresize = () => {
+    screenWidth=window.innerWidth
     createGrid()
     rem()
-    screenWidth=window.innerWidth
 };
 
 // Stagger Effect
