@@ -8,9 +8,13 @@ rem()
 const handleMouseMove =  e =>{
     document.querySelector("#left-side").style.width = (e.clientX / screenWidth * 100)+"%"
 }
-document.onmousemove=e=> handleMouseMove(e)
-document.ontouchmove=e=> handleMouseMove(e.touches[0])
 
+const slider=document.querySelector(".slider")
+const javaphile=document.querySelector(".javaphile")
+
+slider.onmousemove=e=> handleMouseMove(e)
+slider.ontouchmove=e=> handleMouseMove(e.touches[0])
+javaphile.onclick=e=> handleMouseMove(e)
 // Slider Effect
 
 
@@ -26,6 +30,7 @@ function anima(index) {
     toggled = !toggled;
     document.querySelector(".tiles-c").classList.toggle("toggled");
     document.querySelector(".cgp .logo").classList.toggle("visible");
+    document.querySelector(".cgp .text").classList.toggle("visible");
     
     anime({
         targets: ".tile",
@@ -75,8 +80,6 @@ window.onresize = () => {
 // Stagger Effect
 
 const blanket=document.querySelector(".blanket")
-const slider=document.querySelector(".slider")
-const javaphile=document.querySelector(".javaphile")
 const cgp=document.querySelector(".cgp")
 
 function trans(pre,nex,an1,an2) {
@@ -123,7 +126,7 @@ function trans(pre,nex,an1,an2) {
                 console.log(Math.ceil(columns/2));
                 anima((rows%2==1) ? ((Math.ceil(rows/2)*columns)+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1) : (rows/2*columns+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1))
                 cgp.classList.add("animad")
-            },screenWidth>800?500:600)
+            },screenWidth>800?800:1000)
         }
     }
 }

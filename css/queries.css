@@ -42,6 +42,25 @@
     #left-side .yinyang{
         border: 3px solid black;
     }
+    .cgp .text{
+        top: 45vh;
+    }
+    .cgp .text .f{
+        flex-direction: column;
+        gap: 0;
+        font-size: 10rem;
+    }
+    .gamer{
+        font-size: 8rem;
+        margin-bottom: -2rem;
+    }
+    .and{
+        margin-bottom: -4rem;
+        font-size: 8rem;
+    }
+    .n{
+        font-size: 10rem;
+    }
 }
 @media (max-width:644px){
     .j-flex{

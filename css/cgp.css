@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 .cgp{
     height: 100vh;
     width: 100vw;
@@ -75,10 +77,54 @@
     z-index: 9;
     height: 400px;
     pointer-events: none;
-    transition: opacity 1000ms ease;
+    transition: opacity 1300ms ease;
   }
   
   .cgp .logo.visible{
+    transition: opacity 1300ms ease;
+    opacity: 1;
+  }
+
+  .cgp .text{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    z-index: 9;
+    width: 100vw;
+    pointer-events: none;
+    transition: opacity 1000ms ease;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    font-size: 6rem;
+  }
+  .and{
+    font-size: 6rem;
+  }
+  .cgp .text.visible{
     transition: opacity 1000ms ease;
     opacity: 1;
+  }
+  .coder{
+    font-family: "VT323",monospace;
+  }
+  .pro{
+    font-family: 'Dancing Script', cursive;
+  }
+  .gamer{
+    font-family: 'Audiowide', cursive;
+    font-size: 6rem;
+  }
+  .f{
+    color: #FCF300;
+    font-size: 8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
   }
