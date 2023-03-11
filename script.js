@@ -1,11 +1,12 @@
+let screenWidth= window.innerWidth
 function rem() {
-    document.querySelector("html").style.fontSize = window.innerWidth>645 ? window.innerWidth/153.6+"px" : window.innerWidth/92+"px"
+    document.querySelector("html").style.fontSize = screenWidth>645 ? screenWidth/153.6+"px" : screenWidth/92+"px"
 }
 rem()
 // Slider Effect
 
 const handleMouseMove =  e =>{
-    document.querySelector("#left-side").style.width = (e.clientX / window.innerWidth * 100)+"%"
+    document.querySelector("#left-side").style.width = (e.clientX / screenWidth * 100)+"%"
 }
 document.onmousemove=e=> handleMouseMove(e)
 document.ontouchmove=e=> handleMouseMove(e.touches[0])
@@ -50,9 +51,9 @@ const createTile = index => {
 const createGrid = () => {
     wrapper.innerHTML = "";
     
-    const size = window.innerWidth > 800 ? 80 : 50;
+    const size = screenWidth > 800 ? 80 : 50;
     
-    columns = Math.floor(window.innerWidth / size);
+    columns = Math.floor(screenWidth / size);
     rows = Math.floor(window.innerHeight / size);
     
     wrapper.style.setProperty("--columns", columns);
@@ -67,6 +68,7 @@ createGrid();
 window.onresize = () => {
     createGrid()
     rem()
+    screenWidth=window.innerWidth
 };
 
 // Stagger Effect
@@ -120,7 +122,7 @@ function trans(pre,nex,an1,an2) {
                 console.log(Math.ceil(columns/2));
                 anima((rows%2==1) ? ((Math.ceil(rows/2)*columns)+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1) : (rows/2*columns+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1))
                 cgp.classList.add("animad")
-            },500)
+            },screenWidth>800?500:600)
         }
     }
 }
