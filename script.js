@@ -81,13 +81,16 @@ window.onresize = () => {
 
 const blanket=document.querySelector(".blanket")
 const cgp=document.querySelector(".cgp")
+let acti=slider
 
 function trans(pre,nex,an1,an2) {
     document.body.style.touchAction = "none"
+    document.onkeydown = 0
     document.querySelectorAll(".t-butt").forEach(e=>{e.classList.add("disable")})
     pre.style.animation = an1+" 1s ease-in-out"
     nex.style.animation = an2+" 1s ease-in-out"
     nex.classList.add("active")
+    acti=nex
     switch (an1) {
         case "move-right":
             tv= "-100%"
@@ -104,6 +107,7 @@ function trans(pre,nex,an1,an2) {
         pre.classList.remove("active")
         document.body.style.touchAction = "auto"
         document.querySelectorAll(".t-butt").forEach(e=>{e.classList.remove("disable")})
+        document.onkeydown = function (e) {handleKeyPress(e)}
     },1100)
     if (nex==javaphile) {
         let n =1
@@ -123,13 +127,33 @@ function trans(pre,nex,an1,an2) {
     if (nex==cgp) {
         if(!cgp.classList.contains("animad")){
             setTimeout(()=>{
-                console.log(Math.ceil(columns/2));
                 anima((rows%2==1) ? ((Math.ceil(rows/2)*columns)+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1) : (rows/2*columns+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1))
                 cgp.classList.add("animad")
             },screenWidth>800?1000:1200)
         }
     }
 }
+
+function handleKeyPress(e) {
+    e=e.keyCode
+    if (acti==slider) {
+        if (e==39) {
+            trans(slider,javaphile,"move-left","come-from-right")
+        }
+    } else if (acti==javaphile){
+        if (e==40) {
+            trans(javaphile,cgp,"move-up","come-from-down")
+        } else if (e==37) {
+            trans(javaphile,slider,"move-right","come-from-left")
+        }
+    } else if (acti==cgp){
+        if (e==38) {
+            trans(cgp,javaphile,"move-down","come-from-up")
+        }
+    }
+}
+
+document.onkeydown = function (e) {handleKeyPress(e)};
 
 slider.querySelector(".next").onclick=i=>{
     trans(slider,javaphile,"move-left","come-from-right")
