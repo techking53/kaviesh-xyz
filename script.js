@@ -3,11 +3,8 @@ function rem() {
     document.querySelector("html").style.fontSize = screenWidth>645 ? screenWidth/153.6+"px" : screenWidth/92+"px"
 }
 rem()
-// Slider Effect
 
-const handleMouseMove =  e =>{
-    document.querySelector("#left-side").style.width = (e.clientX / screenWidth * 100)+"%"
-}
+const handleMouseMove =  e =>{document.querySelector("#left-side").style.width = (e.clientX / screenWidth * 100)+"%"}
 
 const slider=document.querySelector(".slider")
 const javaphile=document.querySelector(".javaphile")
@@ -15,13 +12,8 @@ const javaphile=document.querySelector(".javaphile")
 slider.onmousemove=e=> handleMouseMove(e)
 slider.ontouchmove=e=> handleMouseMove(e.touches[0])
 javaphile.onclick=e=> handleMouseMove(e)
-// Slider Effect
-
-
-// Stagger Effect
 
 const wrapper = document.getElementById("tiles");
-
 let columns = 0,
 rows = 0,
 toggled = true;
@@ -42,18 +34,6 @@ function anima(index) {
     });
 }
 
-const createTile = index => {
-    const tile = document.createElement("div");
-    
-    tile.classList.add("tile");
-    
-    tile.style.opacity = toggled ? 0 : 1;
-    
-    tile.onclick = e => anima(index);
-    
-    return tile;
-}
-
 const createGrid = () => {
     wrapper.innerHTML = "";
     
@@ -66,7 +46,13 @@ const createGrid = () => {
     wrapper.style.setProperty("--rows", rows);
     
     Array.from(Array(columns*rows)).map((tile, index) => {
-        wrapper.appendChild(createTile(index));
+        wrapper.appendChild((index=>{
+            const tile = document.createElement("div");
+            tile.classList.add("tile");
+            tile.style.opacity = toggled ? 0 : 1;
+            tile.onclick = e => anima(index);
+            return tile;
+        })(index));
     });
 }
 
@@ -94,15 +80,21 @@ function trans(pre,nex,an1,an2) {
     acti=nex
     switch (an1) {
         case "move-right":
-            tv= "-100%"
+            tv= "translate(-100%,0)"
             break;
         case "move-left":
-            tv= "100%"
+            tv= "translate(100%,0)"
+            break;
+        case "move-up":
+            tv= "translate(0,-100%)"
+            break;
+        case "move-down":
+            tv= "translate(0,100%)"
             break;
         default:
             break;
     }
-    pre.style.transform = "translateX(" + tv + ")"
+    pre.style.transform = tv
     nex.style.transform = "translateX(0%)"
     setTimeout(()=>{
         pre.classList.remove("active")
@@ -110,32 +102,9 @@ function trans(pre,nex,an1,an2) {
         document.querySelectorAll(".t-butt").forEach(e=>{e.classList.remove("disable")})
         document.onkeydown = function (e) {handleKeyPress(e)}
     },1100)
-    if (nex==javaphile) {
-        let n =1
-        document.querySelectorAll(".j-iflex.me h3").forEach((e)=>{
-            e.classList.contains("anted") ? e.style.animation="none" : e.classList.add("anted")
-            edelay=(400+500*n)
-            e.style.animationDelay=edelay+"ms"
-            setTimeout((e) => {
-                e.style.transform="translateX(0)"
-            }, edelay+100,e);
-            n++
-        })
-        setTimeout(()=>{
-            blanket.classList.contains("animated") ? blanket.style.animation="none" : blanket.classList.add("animated")
-        },200)
-    }
-    if (nex==cgp) {
-        if(!cgp.classList.contains("animad")){
-            setTimeout(()=>{
-                anima((rows%2==1) ? ((Math.ceil(rows/2)*columns)+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1) : (rows/2*columns+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1))
-                cgp.classList.add("animad")
-            },screenWidth>800?1000:1200)
-        }
-    }
 }
 
-function handleKeyPress(e) {
+document.onkeydown = function (e) {
     e=e.keyCode
     if (acti==slider) {
         if (e==39) {
@@ -152,25 +121,52 @@ function handleKeyPress(e) {
             trans(cgp,javaphile,"move-down","come-from-up")
         }
     }
+};
+
+function nexjava() {
+    let n =1
+    document.querySelectorAll(".j-iflex.me h3").forEach((e)=>{
+        e.classList.contains("anted") ? e.style.animation="none" : e.classList.add("anted")
+        edelay=(400+500*n)
+        e.style.animationDelay=edelay+"ms"
+        setTimeout((e) => {
+            e.style.transform="translateX(0)"
+        }, edelay+100,e);
+        n++
+    })
+    setTimeout(()=>{
+        blanket.classList.contains("animated") ? blanket.style.animation="none" : blanket.classList.add("animated")
+    },200)
 }
 
-document.onkeydown = function (e) {handleKeyPress(e)};
+function nexcgp() {
+    if(!cgp.classList.contains("animad")){
+        setTimeout(()=>{
+            anima((rows%2==1) ? ((Math.ceil(rows/2)*columns)+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1) : (rows/2*columns+((columns%2==1) ? Math.ceil(columns/2) : columns/2)-1))
+            cgp.classList.add("animad")
+        },screenWidth>800?1000:1200)
+    }
+}
 
-slider.querySelector(".next").onclick=i=>{
+slider.querySelector(".next").onclick=()=>{
     trans(slider,javaphile,"move-left","come-from-right")
+    nexjava()
 }
-javaphile.querySelector(".back").onclick=i=>{
+javaphile.querySelector(".back").onclick=()=>{
     trans(javaphile,slider,"move-right","come-from-left")
 }
-javaphile.querySelector(".next").onclick=i=>{
+javaphile.querySelector(".next").onclick=()=>{
     trans(javaphile,cgp,"move-up","come-from-down")
+    nexcgp()
 }
-cgp.querySelector(".back").onclick=i=>{
+cgp.querySelector(".back").onclick=()=>{
     trans(cgp,javaphile,"move-down","come-from-up")
+    nexjava()
 }
-cgp.querySelector(".next").onclick=i=>{
+cgp.querySelector(".next").onclick=()=>{
     trans(cgp,age,"move-up","come-from-down")
 }
-age.querySelector(".back").onclick=i=>{
+age.querySelector(".back").onclick=()=>{
     trans(age,cgp,"move-down","come-from-up")
+    nexcgp()
 }
