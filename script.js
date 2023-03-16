@@ -81,6 +81,7 @@ window.onresize = () => {
 
 const blanket=document.querySelector(".blanket")
 const cgp=document.querySelector(".cgp")
+const age=document.querySelector(".age")
 let acti=slider
 
 function trans(pre,nex,an1,an2) {
@@ -166,4 +167,10 @@ javaphile.querySelector(".next").onclick=i=>{
 }
 cgp.querySelector(".back").onclick=i=>{
     trans(cgp,javaphile,"move-down","come-from-up")
+}
+cgp.querySelector(".next").onclick=i=>{
+    trans(cgp,age,"move-up","come-from-down")
+}
+age.querySelector(".back").onclick=i=>{
+    trans(age,cgp,"move-down","come-from-up")
 }

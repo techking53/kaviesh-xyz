@@ -197,3 +197,39 @@
         transform: translateY(0%);
     }
 }
+
+.cgp .next{
+    font-size: 5.6rem;
+    position: absolute;
+    bottom: 10vh;
+    right: 50vw;
+    transform: translate(50%, 50%);
+    border-radius: 100%;
+    padding: 4rem;
+    z-index: 4;
+    cursor: pointer;
+    color: var(--white);
+    animation: bloom 0.3s;
+}
+.cgp .next:hover{
+    color: var(--white);
+    animation: flash 1s infinite;
+}
+
+.age .back{
+    font-size: 5.6rem;
+    position: absolute;
+    top: 10vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    padding: 4rem;
+    z-index: 4;
+    cursor: pointer;
+    color: var(--black);
+}
+.age .back:hover{
+    background: radial-gradient(circle, var(--black) 0%, var(--transparent) 65%);
+    color: var(--cyan);
+    animation: grow 1s infinite;
+}
