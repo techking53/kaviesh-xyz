@@ -70,6 +70,36 @@ const cgp=document.querySelector(".cgp")
 const age=document.querySelector(".age")
 let acti=slider
 
+function handleKeyPress(e) {
+    e=e.keyCode
+    if (acti==slider) {
+        if (e==39) {
+            trans(slider,javaphile,"move-left","come-from-right")
+            nexjava()        
+        }
+    } else if (acti==javaphile){
+        if (e==40) {
+            trans(javaphile,cgp,"move-up","come-from-down")
+            nexcgp()
+        } else if (e==37) {
+            trans(javaphile,slider,"move-right","come-from-left")
+        }
+    } else if (acti==cgp){
+        if (e==38) {
+            trans(cgp,javaphile,"move-down","come-from-up")
+            nexjava()
+        } else if (e==40) {
+            nexage()
+            trans(cgp,age,"move-up","come-from-down")
+        }
+    } else if (acti==age){
+        if (e==38) {
+            trans(age,cgp,"move-down","come-from-up")
+            nexcgp()
+        }
+    }
+}
+
 function trans(pre,nex,an1,an2) {
     document.body.style.touchAction = "none"
     document.onkeydown = 0
@@ -104,24 +134,7 @@ function trans(pre,nex,an1,an2) {
     },1100)
 }
 
-document.onkeydown = function (e) {
-    e=e.keyCode
-    if (acti==slider) {
-        if (e==39) {
-            trans(slider,javaphile,"move-left","come-from-right")
-        }
-    } else if (acti==javaphile){
-        if (e==40) {
-            trans(javaphile,cgp,"move-up","come-from-down")
-        } else if (e==37) {
-            trans(javaphile,slider,"move-right","come-from-left")
-        }
-    } else if (acti==cgp){
-        if (e==38) {
-            trans(cgp,javaphile,"move-down","come-from-up")
-        }
-    }
-};
+document.onkeydown = function (e) {handleKeyPress(e)};
 
 function nexjava() {
     let n =1
@@ -147,24 +160,44 @@ function nexcgp() {
         },screenWidth>800?1000:1200)
     }
 }
+function nexage() {
+    calculateAge()
+    ageCalci=setInterval(calculateAge,15000);
+}
 
 function calculateAge() {
-    const birthDate = new Date('March 5, 2009 16:40:00'),
-    currentDate = new Date();
 
-  // Calculate age in milliseconds
-  const ageInMs = currentDate - birthDate + 1000*60*60*12;
+//     const birthDate = new Date('March 5, 2009 16:40:00'),
+//     currentDate = new Date();
 
-  // Convert age from milliseconds to years, months, weeks, days, hours, and minutes
-  const ageInYears = Math.floor(ageInMs / (1000 * 60 * 60 * 24 * 365.25));
-  const ageInMonths = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25) / (1000 * 60 * 60 * 24 * 30.44));
-  const ageInDays = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44) / (1000 * 60 * 60 * 24));
-  const ageInWeeks = Math.floor(ageInDays / 7);
-  const ageInHours = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44 - ageInDays * 1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-  const ageInMinutes = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44 - ageInDays * 1000 * 60 * 60 * 24 - ageInHours * 1000 * 60 * 60) / (1000 * 60));
+//   // Calculate age in milliseconds
+//   const ageInMs = currentDate - birthDate + 1000*60*60*12;
+
+//   // Convert age from milliseconds to years, months, weeks, days, hours, and minutes
+//   const ageInYears = Math.floor(ageInMs / (1000 * 60 * 60 * 24 * 365.25));
+//   const ageInMonths = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25) / (1000 * 60 * 60 * 24 * 30.44));
+//   const ageInDays = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44) / (1000 * 60 * 60 * 24));
+//   const ageInWeeks = Math.floor(ageInDays / 7);
+//   const ageInHours = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44 - ageInDays * 1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+//   const ageInMinutes = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44 - ageInDays * 1000 * 60 * 60 * 24 - ageInHours * 1000 * 60 * 60) / (1000 * 60));
+    
+
+const birthDate = new Date('March 5, 2009 16:40:00');
+const currentDate = new Date();
+
+const diffInMs = currentDate.getTime() - birthDate.getTime();
+const ageDate = new Date(diffInMs);
+
+const ageInYears = Math.abs(ageDate.getUTCFullYear() - 1970);
+const ageInMonths = ageDate.getUTCMonth();
+const ageInDays = ageDate.getUTCDate() - 1;
+let ageInWeeks = Math.floor((diffInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44) / (1000 * 60 * 60 * 24 * 7));
+const ageInHours = ageDate.getUTCHours();
+const ageInMinutes = ageDate.getUTCMinutes();
+
 
   // Subtract the number of complete weeks from the ageInDays
-  const remainingDays = ageInDays - ageInWeeks * 7,
+  const remainingDays = Math.floor(ageInDays%7),
   yearsEl=document.getElementById('years'),
   monthsEl=document.getElementById('months'),
   weeksEl=document.getElementById('weeks'),
@@ -172,6 +205,7 @@ function calculateAge() {
   hoursEl=document.getElementById('hours'),
   minutesEl=document.getElementById('minutes');
 
+ageInWeeks=ageInWeeks==-1 ? 0 : ageInWeeks
 
   yearsEl.textContent = ageInYears;
   monthsEl.textContent = ageInMonths;
@@ -212,8 +246,7 @@ cgp.querySelector(".back").onclick=()=>{
 }
 let ageCalci;
 cgp.querySelector(".next").onclick=()=>{
-    calculateAge()
-    ageCalci=setInterval(calculateAge, 15000);
+    nexage()
     trans(cgp,age,"move-up","come-from-down")
 }
 age.querySelector(".back").onclick=()=>{
