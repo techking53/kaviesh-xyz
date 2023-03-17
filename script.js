@@ -63,8 +63,6 @@ window.onresize = () => {
     rem()
 };
 
-// Stagger Effect
-
 const blanket=document.querySelector(".blanket")
 const cgp=document.querySelector(".cgp")
 const age=document.querySelector(".age")

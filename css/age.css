@@ -28,10 +28,7 @@
 }
 
 .age .text h1:first-child{
-    margin-right: 2rem;
-}
-.age .text h1:last-child{
-    margin-left: -2rem;
+    margin-right: 4rem;
 }
 .age-item span:first-child{
     font-family: 'Righteous', cursive;

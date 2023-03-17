@@ -24,6 +24,9 @@
       .cgp .logo{
         height: 300px;
       }
+      .age .text{
+        font-size: 6rem;
+      }
 }
 @media (max-width:700px){
     .slider h1{
@@ -98,6 +101,9 @@
     }#left-side h1{
         margin-top: 15px;
     }
+    .age .text{
+        font-size: 4.5rem;
+    }
     @media (min-height:888px) and (max-width:644px) and (min-width:501px){#left-side .yinyang{margin-top: 18.3vh;}}
     @media (min-height:1000px) and (max-width:644px) and (min-width:501px){#left-side h1{margin-top: 25px;}}
     @media (min-height:1100px) and (max-width:644px) and (min-width:501px){#left-side .yinyang{margin-top: 18.8vh;}#left-side h1{margin-top: 35px;}}
@@ -123,6 +129,16 @@
     }
     .javaphile .next, .cgp .next{
         bottom: 12vh;
+    }
+    .age .text{
+        flex-direction: column;
+        align-items: baseline;
+        margin-left: 20vw;
+        gap: 0;
+        font-size: 7rem;
+    }
+    .age-container{
+        font-size: 9rem;
     }
     @media (min-height:700px) and (max-width:500px) and (min-width:411px){#left-side h1{margin-top: 20px;}}
     @media (min-height:800px) and (max-width:500px) and (min-width:411px){#left-side h1{margin-top: 30px;}}
@@ -217,6 +233,15 @@
             font-size: 7.2rem;
             padding: 6rem;
         }
+    }
+}
+@media (max-width:350px){
+    .age .text{
+        font-size: 7rem;
+        margin-left: 20vw;
+    }
+    .age-container{
+        font-size: 10rem;
     }
 }
 @media (max-width:280px){
