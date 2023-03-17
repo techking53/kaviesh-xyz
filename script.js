@@ -166,67 +166,42 @@ function nexage() {
 }
 
 function calculateAge() {
-
-//     const birthDate = new Date('March 5, 2009 16:40:00'),
-//     currentDate = new Date();
-
-//   // Calculate age in milliseconds
-//   const ageInMs = currentDate - birthDate + 1000*60*60*12;
-
-//   // Convert age from milliseconds to years, months, weeks, days, hours, and minutes
-//   const ageInYears = Math.floor(ageInMs / (1000 * 60 * 60 * 24 * 365.25));
-//   const ageInMonths = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25) / (1000 * 60 * 60 * 24 * 30.44));
-//   const ageInDays = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44) / (1000 * 60 * 60 * 24));
-//   const ageInWeeks = Math.floor(ageInDays / 7);
-//   const ageInHours = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44 - ageInDays * 1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-//   const ageInMinutes = Math.floor((ageInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44 - ageInDays * 1000 * 60 * 60 * 24 - ageInHours * 1000 * 60 * 60) / (1000 * 60));
-    
-
-const birthDate = new Date('March 5, 2009 16:40:00');
-const currentDate = new Date();
-
-const diffInMs = currentDate.getTime() - birthDate.getTime();
-const ageDate = new Date(diffInMs);
-
-const ageInYears = Math.abs(ageDate.getUTCFullYear() - 1970);
-const ageInMonths = ageDate.getUTCMonth();
-const ageInDays = ageDate.getUTCDate() - 1;
-let ageInWeeks = Math.floor((diffInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44) / (1000 * 60 * 60 * 24 * 7));
-const ageInHours = ageDate.getUTCHours();
-const ageInMinutes = ageDate.getUTCMinutes();
-
-
-  // Subtract the number of complete weeks from the ageInDays
-  const remainingDays = Math.floor(ageInDays%7),
-  yearsEl=document.getElementById('years'),
-  monthsEl=document.getElementById('months'),
-  weeksEl=document.getElementById('weeks'),
-  daysEl=document.getElementById('days'),
-  hoursEl=document.getElementById('hours'),
-  minutesEl=document.getElementById('minutes');
-
-ageInWeeks=ageInWeeks==-1 ? 0 : ageInWeeks
-
-  yearsEl.textContent = ageInYears;
-  monthsEl.textContent = ageInMonths;
-  weeksEl.textContent = ageInWeeks;
-  daysEl.textContent = remainingDays;
-  hoursEl.textContent = ageInHours;
-  minutesEl.textContent = ageInMinutes;
-
-  ageInYears==0 ? yearsEl.parentElement.style.display="none" : yearsEl.parentElement.style.display="block" ;
-  ageInMonths==0 ? monthsEl.parentElement.style.display="none" : monthsEl.parentElement.style.display="block" ;
-  ageInWeeks==0 ? weeksEl.parentElement.style.display="none" : weeksEl.parentElement.style.display="block" ;
-  remainingDays==0 ? daysEl.parentElement.style.display="none" : daysEl.parentElement.style.display="block" ;
-  ageInHours==0 ? hoursEl.parentElement.style.display="none" : hoursEl.parentElement.style.display="block" ;
-  ageInMinutes==0 ? minutesEl.parentElement.style.display="none" : minutesEl.parentElement.style.display="block" ;
-
-  ageInYears==1 ? yearsEl.nextElementSibling.textContent="Year" : yearsEl.nextElementSibling.textContent="Years" ;
-  ageInMonths==1 ? monthsEl.nextElementSibling.textContent="Month" : monthsEl.nextElementSibling.textContent="Months" ;
-  ageInWeeks==1 ? weeksEl.nextElementSibling.textContent="Week" : weeksEl.nextElementSibling.textContent="Weeks" ;
-  remainingDays==1 ? daysEl.nextElementSibling.textContent="Day" : daysEl.nextElementSibling.textContent="Days" ;
-  ageInHours==1 ? hoursEl.nextElementSibling.textContent="Hour" : hoursEl.nextElementSibling.textContent="Hours" ;
-  ageInMinutes==1 ? minutesEl.nextElementSibling.textContent="Minute" : minutesEl.nextElementSibling.textContent="Minutes" ;
+    const birthDate = new Date('March 5, 2009 16:40:00');
+    const currentDate = new Date();
+    const diffInMs = currentDate.getTime() - birthDate.getTime();
+    const ageDate = new Date(diffInMs);
+    const ageInYears = Math.abs(ageDate.getUTCFullYear() - 1970);
+    const ageInMonths = ageDate.getUTCMonth();
+    const ageInDays = ageDate.getUTCDate() - 1;
+    let ageInWeeks = Math.floor((diffInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44) / (1000 * 60 * 60 * 24 * 7));
+    const ageInHours = ageDate.getUTCHours();
+    const ageInMinutes = ageDate.getUTCMinutes();
+    const remainingDays = Math.floor(ageInDays%7)
+    const yearsEl=document.getElementById('years')
+    const monthsEl=document.getElementById('months')
+    const weeksEl=document.getElementById('weeks')
+    const daysEl=document.getElementById('days')
+    const hoursEl=document.getElementById('hours')
+    const minutesEl=document.getElementById('minutes');
+    ageInWeeks=ageInWeeks==-1 ? 0 : ageInWeeks;
+    yearsEl.textContent = ageInYears;
+    monthsEl.textContent = ageInMonths;
+    weeksEl.textContent = ageInWeeks;
+    daysEl.textContent = remainingDays;
+    hoursEl.textContent = ageInHours;
+    minutesEl.textContent = ageInMinutes;
+    ageInYears==0 ? yearsEl.parentElement.style.display="none" : yearsEl.parentElement.style.display="block" ;
+    ageInMonths==0 ? monthsEl.parentElement.style.display="none" : monthsEl.parentElement.style.display="block" ;
+    ageInWeeks==0 ? weeksEl.parentElement.style.display="none" : weeksEl.parentElement.style.display="block" ;
+    remainingDays==0 ? daysEl.parentElement.style.display="none" : daysEl.parentElement.style.display="block" ;
+    ageInHours==0 ? hoursEl.parentElement.style.display="none" : hoursEl.parentElement.style.display="block" ;
+    ageInMinutes==0 ? minutesEl.parentElement.style.display="none" : minutesEl.parentElement.style.display="block" ;
+    ageInYears==1 ? yearsEl.nextElementSibling.textContent="Year" : yearsEl.nextElementSibling.textContent="Years" ;
+    ageInMonths==1 ? monthsEl.nextElementSibling.textContent="Month" : monthsEl.nextElementSibling.textContent="Months" ;
+    ageInWeeks==1 ? weeksEl.nextElementSibling.textContent="Week" : weeksEl.nextElementSibling.textContent="Weeks" ;
+    remainingDays==1 ? daysEl.nextElementSibling.textContent="Day" : daysEl.nextElementSibling.textContent="Days" ;
+    ageInHours==1 ? hoursEl.nextElementSibling.textContent="Hour" : hoursEl.nextElementSibling.textContent="Hours" ;
+    ageInMinutes==1 ? minutesEl.nextElementSibling.textContent="Minute" : minutesEl.nextElementSibling.textContent="Minutes" ;
 }
 
 slider.querySelector(".next").onclick=()=>{
