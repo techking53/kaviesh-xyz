@@ -4,47 +4,33 @@ function rem() {
 }
 rem()
 
-const handleMouseMove =  e =>{document.querySelector("#left-side").style.width = (e.clientX / screenWidth * 100)+"%"}
 
+const handleMouseMove =  e =>{document.querySelector("#left-side").style.width = (e.clientX / screenWidth * 100)+"%"}
 const slider=document.querySelector(".slider")
 const javaphile=document.querySelector(".javaphile")
-
 slider.onmousemove=e=> handleMouseMove(e)
 slider.ontouchmove=e=> handleMouseMove(e.touches[0])
 javaphile.onclick=e=> handleMouseMove(e)
+
 
 const wrapper = document.getElementById("tiles");
 let columns = 0,
 rows = 0,
 toggled = true;
-
 function anima(index) {
     toggled = !toggled;
     document.querySelector(".tiles-c").classList.toggle("toggled");
     document.querySelector(".cgp .logo").classList.toggle("visible");
     document.querySelector(".cgp .text").classList.toggle("visible");
-    
-    anime({
-        targets: ".tile",
-        opacity: toggled ? 0 : 1,
-        delay: anime.stagger(50, {
-            grid: [columns, rows],
-            from: index
-        })
-    });
+    anime({targets: ".tile",opacity: toggled ? 0 : 1,delay: anime.stagger(50, {grid: [columns, rows],from: index})});
 }
-
 const createGrid = () => {
     wrapper.innerHTML = "";
-    
     const size = screenWidth > 800 ? 80 : 50;
-    
     columns = Math.floor(screenWidth / size);
     rows = Math.floor(window.innerHeight / size);
-    
     wrapper.style.setProperty("--columns", columns);
     wrapper.style.setProperty("--rows", rows);
-    
     Array.from(Array(columns*rows)).map((tile, index) => {
         wrapper.appendChild((index=>{
             const tile = document.createElement("div");
@@ -55,13 +41,9 @@ const createGrid = () => {
         })(index));
     });
 }
-
 createGrid();
-window.onresize = () => {
-    screenWidth=window.innerWidth
-    createGrid()
-    rem()
-};
+window.onresize = () => {screenWidth=window.innerWidth;createGrid();rem()};
+
 
 const blanket=document.querySelector(".blanket")
 const cgp=document.querySelector(".cgp")
@@ -71,30 +53,18 @@ let acti=slider
 function handleKeyPress(e) {
     e=e.keyCode
     if (acti==slider) {
-        if (e==39) {
-            trans(slider,javaphile,"move-left","come-from-right")
-            nexjava()        
-        }
-    } else if (acti==javaphile){
-        if (e==40) {
-            trans(javaphile,cgp,"move-up","come-from-down")
-            nexcgp()
-        } else if (e==37) {
-            trans(javaphile,slider,"move-right","come-from-left")
-        }
-    } else if (acti==cgp){
-        if (e==38) {
-            trans(cgp,javaphile,"move-down","come-from-up")
-            nexjava()
-        } else if (e==40) {
-            nexage()
-            trans(cgp,age,"move-up","come-from-down")
-        }
-    } else if (acti==age){
-        if (e==38) {
-            trans(age,cgp,"move-down","come-from-up")
-            nexcgp()
-        }
+        if (e==39) {trans(slider,javaphile,"move-left","come-from-right");nexjava()}
+    } 
+    else if (acti==javaphile){
+        if (e==40) {trans(javaphile,cgp,"move-up","come-from-down");nexcgp()}
+         else if (e==37) {trans(javaphile,slider,"move-right","come-from-left")}
+    } 
+    else if (acti==cgp){
+        if (e==38) {trans(cgp,javaphile,"move-down","come-from-up");nexjava()} 
+        else if (e==40) {nexage();trans(cgp,age,"move-up","come-from-down")}
+    } 
+    else if (acti==age){
+        if (e==38) {trans(age,cgp,"move-down","come-from-up");nexcgp()}
     }
 }
 
@@ -131,7 +101,6 @@ function trans(pre,nex,an1,an2) {
         document.onkeydown = function (e) {handleKeyPress(e)}
     },1100)
 }
-
 document.onkeydown = function (e) {handleKeyPress(e)};
 
 function nexjava() {
@@ -148,6 +117,7 @@ function nexjava() {
     setTimeout(()=>{
         blanket.classList.contains("animated") ? blanket.style.animation="none" : blanket.classList.add("animated")
     },200)
+    document.querySelector(".cgp .logo").src="cgp-logo.webp"
 }
 
 function nexcgp() {
@@ -158,10 +128,7 @@ function nexcgp() {
         },screenWidth>800?1000:1200)
     }
 }
-function nexage() {
-    calculateAge()
-    ageCalci=setInterval(calculateAge,15000);
-}
+function nexage() {calculateAge();ageCalci=setInterval(calculateAge,15000);}
 
 function calculateAge() {
     const birthDate = new Date('March 5, 2009 16:40:00');
@@ -202,28 +169,13 @@ function calculateAge() {
     ageInMinutes==1 ? minutesEl.nextElementSibling.textContent="Minute" : minutesEl.nextElementSibling.textContent="Minutes" ;
 }
 
-slider.querySelector(".next").onclick=()=>{
-    trans(slider,javaphile,"move-left","come-from-right")
-    nexjava()
-}
-javaphile.querySelector(".back").onclick=()=>{
-    trans(javaphile,slider,"move-right","come-from-left")
-}
-javaphile.querySelector(".next").onclick=()=>{
-    trans(javaphile,cgp,"move-up","come-from-down")
-    nexcgp()
-}
-cgp.querySelector(".back").onclick=()=>{
-    trans(cgp,javaphile,"move-down","come-from-up")
-    nexjava()
-}
+slider.querySelector(".next").onclick=()=>{trans(slider,javaphile,"move-left","come-from-right");nexjava()}
+javaphile.querySelector(".back").onclick=()=>{trans(javaphile,slider,"move-right","come-from-left")}
+javaphile.querySelector(".next").onclick=()=>{trans(javaphile,cgp,"move-up","come-from-down");nexcgp()}
+cgp.querySelector(".back").onclick=()=>{trans(cgp,javaphile,"move-down","come-from-up");nexjava()}
+cgp.querySelector(".next").onclick=()=>{nexage();trans(cgp,age,"move-up","come-from-down")}
 let ageCalci;
-cgp.querySelector(".next").onclick=()=>{
-    nexage()
-    trans(cgp,age,"move-up","come-from-down")
-}
 age.querySelector(".back").onclick=()=>{
     clearInterval(ageCalci)
-    trans(age,cgp,"move-down","come-from-up")
-    nexcgp()
+    trans(age,cgp,"move-down","come-from-up");nexcgp()
 }
