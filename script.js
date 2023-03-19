@@ -181,7 +181,7 @@ function calculateAge() {
     const daysEl=document.getElementById('days')
     const hoursEl=document.getElementById('hours')
     const minutesEl=document.getElementById('minutes');
-    ageInWeeks=ageInWeeks==-1 ? 0 : ageInWeeks;
+    ageInWeeks+=1;
     yearsEl.textContent = ageInYears;
     monthsEl.textContent = ageInMonths;
     weeksEl.textContent = ageInWeeks;
