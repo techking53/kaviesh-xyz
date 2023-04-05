@@ -63,8 +63,11 @@
     .n{
         font-size: 10rem;
     }
-    .javaphile .back,.slider .next{
+    .javaphile .back,.slider .next, .age .next{
         bottom: 45vh;
+    }
+    .desc .back{
+        top: 45vh;
     }
 }
 @media (max-width:644px){
@@ -119,9 +122,13 @@
     .j-flex{
         gap: 15vh;
     }
-    .slider .next, .javaphile .back{
+    .javaphile .back,.slider .next, .age .next{
         bottom: 50vh;
-    }.javaphile .back{
+    }
+    .desc .back{
+        top: 50vh;
+    }
+    .javaphile .back{
         transform: translate(-50%, 50%);
     }
     .age .back,.cgp .back{
@@ -137,6 +144,10 @@
         gap: 0;
         font-size: 7rem;
     }
+    .scroll{
+        top: 80vh;
+    }
+
     .age-container{
         font-size: 9rem;
     }
@@ -161,12 +172,12 @@
         width: 30vw;
         height: 30vw;
         margin: 25vh 0 0 -5%;
-    }.slider .next{
+    }.slider .next, .age .next{
         right: 10vw;
         padding: 5rem;
     }#left-side h1{
         margin-top: 0;
-    }.javaphile .back{
+    }.javaphile .back,.desc .back{
         left: 10vw;
         padding: 5rem;
         font-size: 6rem;

@@ -228,8 +228,39 @@
     cursor: pointer;
     color: var(--black);
 }
-.age .back:hover{
+.age .back:hover, .age .next:hover{
     background: radial-gradient(circle, var(--black) 0%, var(--transparent) 65%);
     color: var(--cyan);
+    animation: grow 1s infinite;
+}
+
+.age .next{
+    font-size: 5.6rem;
+    position: absolute;
+    bottom: 40vh;
+    right: 7vw;
+    transform: translate(50%, 50%);
+    border-radius: 100%;
+    padding: 4rem;
+    z-index: 4;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.desc .back{
+    font-size: 5.6rem;
+    position: absolute;
+    left: 7vw;
+    top: 60vh;
+    border-radius: 100%;
+    padding: 4rem;
+    color: var(--cyan);
+    z-index: 6;
+    cursor: pointer;
+    transform: translate(-50%,-50%);
+}
+.desc .back:hover{
+    background: radial-gradient(circle, var(--cyan) 0%, var(--transparent) 65%);
+    color: var(--black);
     animation: grow 1s infinite;
 }

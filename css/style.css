@@ -6,6 +6,10 @@ html{
     font-size: 10px;
 }
 
+html::-webkit-scrollbar{
+    display: none;
+}
+
 :root{
     --black: #000;
     --white: #fff;
@@ -15,6 +19,8 @@ html{
     --coffee-dark: #432601;
     --eggplant: #3a2d36;
     --purple: #5e0a8f;
+    --purple-dark: #4b0872;
+    --purple-light: #7e3ba5;
     --transparent: rgba(0,0,0,0)
 }
 

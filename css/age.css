@@ -23,7 +23,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 .age-container{
-    color: #4b0872;
+    color: var(--purple-dark);
     font-weight: 700;
 }
 

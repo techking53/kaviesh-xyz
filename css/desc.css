@@ -1,0 +1,29 @@
+.desc{
+    height: 200vh;
+    width: 100vw;
+    position: absolute;
+    transform: translate(100%,0);
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.scroll{
+    display: flex;
+    position: absolute;
+    top: 88vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    gap:10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    border: 3px var(--white) solid;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.desc::-webkit-scrollbar{
+    display: none;
+}
