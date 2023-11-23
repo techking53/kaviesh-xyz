@@ -1,6 +1,7 @@
 const sub=document.querySelector('#subject')
 const sublist={
     nth:[0],
+    adm:[1,1,200],
     eng: [1,1,160],
     math: [1,1,200],
     gp: [1,1,1,200],
