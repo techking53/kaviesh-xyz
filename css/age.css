@@ -30,6 +30,6 @@
 .age .text h1:first-child{
     margin-right: 4rem;
 }
-.age-item span:first-child{
+.age-item .timeunit{
     font-family: 'Righteous', cursive;
 }

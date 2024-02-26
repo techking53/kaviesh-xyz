@@ -11,7 +11,11 @@ icons.src = 'https://kit.fontawesome.com/cb1920e83d.js';
 icons.crossorigin = 'anonymous';
 document.head.appendChild(icons);
 
-
+const momentjs = document.createElement('script');
+    momentjs.src = 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js';
+    momentjs.crossorigin = 'anonymous';
+    momentjs.referrerpolicy = 'no-referrer';
+    document.body.appendChild(momentjs);
 
 fetch('load/content.html')
 .then(response => response.text())

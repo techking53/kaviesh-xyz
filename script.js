@@ -132,42 +132,36 @@ function nexcgp() {
 function nexage() {calculateAge();ageCalci=setInterval(calculateAge,15000);}
 
 function calculateAge() {
-    const birthDate = new Date('March 5, 2009 16:40:00');
-    const currentDate = new Date();
-    const diffInMs = currentDate.getTime() - birthDate.getTime();
-    const ageDate = new Date(diffInMs);
-    const ageInYears = Math.abs(ageDate.getUTCFullYear() - 1970);
-    const ageInMonths = ageDate.getUTCMonth();
-    const ageInDays = ageDate.getUTCDate() - 1;
-    let ageInWeeks = Math.floor((diffInMs - ageInYears * 1000 * 60 * 60 * 24 * 365.25 - ageInMonths * 1000 * 60 * 60 * 24 * 30.44) / (1000 * 60 * 60 * 24 * 7));
-    const ageInHours = ageDate.getUTCHours();
-    const ageInMinutes = ageDate.getUTCMinutes();
-    const remainingDays = Math.floor(ageInDays%7)
-    const yearsEl=document.getElementById('years')
-    const monthsEl=document.getElementById('months')
-    const weeksEl=document.getElementById('weeks')
-    const daysEl=document.getElementById('days')
-    const hoursEl=document.getElementById('hours')
-    const minutesEl=document.getElementById('minutes');
-    ((remainingDays==0 && ageInHours<12) && ageInWeeks!=0) || ageInWeeks==-1 ? ageInWeeks+=1 : ageInWeeks=ageInWeeks;
-    yearsEl.textContent = ageInYears;
-    monthsEl.textContent = ageInMonths;
-    weeksEl.textContent = ageInWeeks;
-    daysEl.textContent = remainingDays;
-    hoursEl.textContent = ageInHours;
-    minutesEl.textContent = ageInMinutes;
-    ageInYears==0 ? yearsEl.parentElement.style.display="none" : yearsEl.parentElement.style.display="block" ;
-    ageInMonths==0 ? monthsEl.parentElement.style.display="none" : monthsEl.parentElement.style.display="block" ;
-    ageInWeeks==0 ? weeksEl.parentElement.style.display="none" : weeksEl.parentElement.style.display="block" ;
-    remainingDays==0 ? daysEl.parentElement.style.display="none" : daysEl.parentElement.style.display="block" ;
-    ageInHours==0 ? hoursEl.parentElement.style.display="none" : hoursEl.parentElement.style.display="block" ;
-    ageInMinutes==0 ? minutesEl.parentElement.style.display="none" : minutesEl.parentElement.style.display="block" ;
-    ageInYears==1 ? yearsEl.nextElementSibling.textContent="Year" : yearsEl.nextElementSibling.textContent="Years" ;
-    ageInMonths==1 ? monthsEl.nextElementSibling.textContent="Month" : monthsEl.nextElementSibling.textContent="Months" ;
-    ageInWeeks==1 ? weeksEl.nextElementSibling.textContent="Week" : weeksEl.nextElementSibling.textContent="Weeks" ;
-    remainingDays==1 ? daysEl.nextElementSibling.textContent="Day" : daysEl.nextElementSibling.textContent="Days" ;
-    ageInHours==1 ? hoursEl.nextElementSibling.textContent="Hour" : hoursEl.nextElementSibling.textContent="Hours" ;
-    ageInMinutes==1 ? minutesEl.nextElementSibling.textContent="Minute" : minutesEl.nextElementSibling.textContent="Minutes" ;
+    var a = moment('2009-03-05 16:40');
+    var b = moment();
+
+    var years = a.diff(b, 'year');
+    b.add(years, 'years');
+    years*=-1
+    
+    var months = a.diff(b, 'months');
+    b.add(months, 'months');
+    months*=-1
+    
+    var days = a.diff(b, 'days');
+    b.add(days,'days')
+    days*=-1
+    
+    var weeks=Math.floor(days/7)
+    var days=days-(weeks*7)
+    
+    var hours = a.diff(b, 'h');
+    b.add(hours,'h')
+    hours*=-1
+    
+    var minutes = a.diff(b, 'minutes');
+    b.add(minutes,'minutes')
+    minutes*=-1
+    age.querySelectorAll('.timeunit').forEach((e)=>{
+        e.innerHTML=eval(e.dataset.unit)
+        e.parentElement.style.display= e.innerHTML==0 ? "none" : 'block'
+        e.nextElementSibling.querySelector('.s').textContent= e.innerHTML==1 ? "" : "s"
+    })
 }
 
 let ageCalci;
