@@ -35,6 +35,10 @@ const createGrid = () => {
     });
 }
 
+setTimeout(()=>{
+    createGrid();
+},1000)
+
 window.onresize = () => {screenWidth=window.innerWidth;createGrid();rem()};
 
 
