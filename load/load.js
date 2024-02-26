@@ -13,7 +13,7 @@ document.head.appendChild(icons);
 
 
 
-fetch('content.html')
+fetch('load/content.html')
 .then(response => response.text())
 .then(html => {document.body.innerHTML += html;
 
