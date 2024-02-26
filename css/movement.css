@@ -247,7 +247,7 @@
     color: var(--black);
 }
 
-.desc .back{
+.music .back{
     font-size: 5.6rem;
     position: absolute;
     left: 7vw;
@@ -259,7 +259,7 @@
     cursor: pointer;
     transform: translate(-50%,-50%);
 }
-.desc .back:hover{
+.music .back:hover{
     background: radial-gradient(circle, var(--cyan) 0%, var(--transparent) 65%);
     color: var(--black);
     animation: grow 1s infinite;

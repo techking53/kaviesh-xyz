@@ -66,7 +66,7 @@
     .javaphile .back,.slider .next, .age .next{
         bottom: 45vh;
     }
-    .desc .back{
+    .music .back{
         top: 45vh;
     }
 }
@@ -125,7 +125,7 @@
     .javaphile .back,.slider .next, .age .next{
         bottom: 50vh;
     }
-    .desc .back{
+    .music .back{
         top: 50vh;
     }
     .javaphile .back{
@@ -143,9 +143,6 @@
         margin-left: 20vw;
         gap: 0;
         font-size: 7rem;
-    }
-    .scroll{
-        top: 80vh;
     }
 
     .age-container{
@@ -177,7 +174,7 @@
         padding: 5rem;
     }#left-side h1{
         margin-top: 0;
-    }.javaphile .back,.desc .back{
+    }.javaphile .back,.music .back{
         left: 10vw;
         padding: 5rem;
         font-size: 6rem;

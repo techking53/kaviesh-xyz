@@ -48,7 +48,7 @@ window.onresize = () => {screenWidth=window.innerWidth;createGrid();rem()};
 const blanket=document.querySelector(".blanket")
 const cgp=document.querySelector(".cgp")
 const age=document.querySelector(".age")
-const desc=document.querySelector(".desc")
+const music=document.querySelector(".music")
 let acti=slider
 
 function handleKeyPress(e) {
@@ -66,9 +66,9 @@ function handleKeyPress(e) {
     } 
     else if (acti==age){
         if (e==38) {trans(age,cgp,"move-down","come-from-up");nexcgp()}
-        if (e==39) {clearInterval(ageCalci);trans(age,desc,"move-left","come-from-right")}
-    } else if(acti==desc){
-        if(e==37){nexage();trans(desc,age,"move-right","come-from-left")}
+        // if (e==39) {clearInterval(ageCalci);trans(age,music,"move-left","come-from-right")}
+    } else if(acti==music){
+        if(e==37){nexage();trans(music,age,"move-right","come-from-left")}
     }
 }
 
@@ -98,7 +98,6 @@ function trans(pre,nex,an1,an2) {
     }
     pre.style.transform = tv
     nex.style.transform = "translateX(0%)"
-    document.body.style.overflow = nex==desc ? "visible" : "hidden"
     setTimeout(()=>{
         pre.classList.remove("active")
         document.body.style.touchAction = "auto"
@@ -184,5 +183,5 @@ age.querySelector(".back").onclick=()=>{
     clearInterval(ageCalci)
     trans(age,cgp,"move-down","come-from-up");nexcgp()
 }
-age.querySelector(".next").onclick=()=>{clearInterval(ageCalci);trans(age,desc,"move-left","come-from-right")}
-desc.querySelector(".back").onclick=()=>{nexage();trans(desc,age,"move-right","come-from-left")}
+age.querySelector(".next").onclick=()=>{clearInterval(ageCalci);trans(age,music,"move-left","come-from-right")}
+music.querySelector(".back").onclick=()=>{nexage();trans(music,age,"move-right","come-from-left")}
