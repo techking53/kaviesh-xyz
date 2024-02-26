@@ -1,10 +1,3 @@
-let screenWidth= window.innerWidth
-function rem() {
-    document.querySelector("html").style.fontSize = screenWidth>645 ? screenWidth/153.6+"px" : screenWidth/92+"px"
-}
-rem()
-
-
 const handleMouseMove =  e =>{document.querySelector("#left-side").style.width = (e.clientX / screenWidth * 100)+"%"}
 const slider=document.querySelector(".slider")
 const javaphile=document.querySelector(".javaphile")
@@ -41,7 +34,7 @@ const createGrid = () => {
         })(index));
     });
 }
-createGrid();
+
 window.onresize = () => {screenWidth=window.innerWidth;createGrid();rem()};
 
 

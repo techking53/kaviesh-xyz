@@ -1,0 +1,79 @@
+<section class="slider active">
+    <div id="left-side" class="side left-side">
+        <div class="yincont"><div class="yinyang"></div></div>
+        <h1>Hey! I'm <span class="fancy">Kaviesh</span></h1>
+    </div>
+    <div class="side right-side">
+        <div class="yincont"><div class="yinyang"></div></div>
+        <h1>Hey! I'm <span class="fancy">TechKing53</span></h1>
+        <div data-trans='trans(slider,javaphile,"move-left","come-from-right");nexjava();createGrid();' class="t-butt next fa-solid fa-right-long"></div>
+    </div>
+</section>
+<section class="javaphile">
+    <div class="t-butt back fa-solid fa-left-long" data-trans='trans(javaphile,slider,"move-right","come-from-left")'></div>
+    <div class="j-flex">
+        <div class="j-iflex def">
+            <h1>javaphile</h1> 
+            <h3 class="phonetics">ˈjhvəfaɪl</h3>               
+            <h3 class="definiton">a person who loves coffee</h3>  
+            <div class="blanket"></div>              
+        </div>
+        <div class="j-iflex me">
+            <h3>thats's</h3>
+            <h3>what</h3>
+            <h3>i am</h3>
+        </div>
+    </div>
+    <div class="t-butt next fa-solid fa-down-long" data-trans='trans(javaphile,cgp,"move-up","come-from-down");nexcgp()'></div>
+</section>
+<section class="cgp">
+    <div class="tiles-c toggled"><div id="tiles"></div></div>
+    <img class="logo visible" src="" alt="LOGO">
+    <div class="text">
+        <span class="n">I'm also a</span>
+        <span class="f">
+            <span class="coder">Coder, </span><span class="gamer">Gamer, </span><span class="and">& </span><span class="pro">Procrastinator</span>
+        </span>
+    </div>
+    <div class="t-butt back fa-solid fa-up-long" data-trans='trans(cgp,javaphile,"move-down","come-from-up");nexjava()'></div>
+    <div class="t-butt next fa-solid fa-down-long" data-trans='nexage();trans(cgp,age,"move-up","come-from-down")'></div>
+</section>
+<section class="age">
+    <div data-trans='clearInterval(ageCalci);trans(age,cgp,"move-down","come-from-up");nexcgp()' class="t-butt back fa-solid fa-up-long"></div>
+    <div class="text">
+        <h1>I was born</h1>
+        <div class="age-container">
+            <div class="age-item">
+              <span id="years"></span>
+              <span>Years</span>
+            </div>
+            <div class="age-item">
+              <span id="months"></span>
+              <span>Months</span>
+            </div>
+            <div class="age-item">
+              <span id="weeks"></span>
+              <span>Weeks</span>
+            </div>
+            <div class="age-item">
+              <span id="days"></span>
+              <span>Days</span>
+            </div>
+            <div class="age-item">
+              <span id="hours"></span>
+              <span>Hours</span>
+            </div>
+            <div class="age-item">
+              <span id="minutes"></span>
+              <span>Minutes</span>
+            </div>
+          </div>
+        <h1>Ago</h1>
+    </div>
+    <div data-trans='clearInterval(ageCalci);trans(age,music,"move-left","come-from-right")' class="t-butt next fa-solid fa-right-long"></div>
+</section>
+<section class="music">
+    <div data-trans='nexage();trans(music,age,"move-right","come-from-left")' class="t-butt back fa-solid fa-left-long"></div>
+</section>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
