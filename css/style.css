@@ -30,6 +30,6 @@ body{
     max-height: 100%;
 }
 
-section:not(.active){
+section:not(.active),.hide{
     display: none;
 }
