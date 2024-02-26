@@ -53,22 +53,22 @@ let acti=slider
 
 function handleKeyPress(e) {
     e=e.keyCode
-    if (acti==slider) {
-        if (e==39) {trans(slider,javaphile,"move-left","come-from-right");nexjava()}
-    } 
-    else if (acti==javaphile){
-        if (e==40) {trans(javaphile,cgp,"move-up","come-from-down");nexcgp()}
-         else if (e==37) {trans(javaphile,slider,"move-right","come-from-left")}
-    } 
-    else if (acti==cgp){
-        if (e==38) {trans(cgp,javaphile,"move-down","come-from-up");nexjava()} 
-        else if (e==40) {nexage();trans(cgp,age,"move-up","come-from-down")}
-    } 
-    else if (acti==age){
-        if (e==38) {trans(age,cgp,"move-down","come-from-up");nexcgp()}
-        // if (e==39) {clearInterval(ageCalci);trans(age,music,"move-left","come-from-right")}
-    } else if(acti==music){
-        if(e==37){nexage();trans(music,age,"move-right","come-from-left")}
+    evalacti=()=>{eval(acti.querySelector((e==39 || e==40) ? ".next" : ".back").dataset.trans)}
+    // left
+    if (e==37){
+        if(acti==javaphile || acti==music){evalacti()}
+    }
+    // up
+    if (e==38){
+        if(acti==age || acti==cgp){evalacti()}
+    }
+    // right
+    if (e==39){
+        if(acti==slider || acti==age){evalacti()}
+    }
+    // down
+    if (e==40){
+        if(acti==javaphile || acti==cgp){evalacti()}
     }
 }
 
@@ -173,15 +173,5 @@ function calculateAge() {
     ageInMinutes==1 ? minutesEl.nextElementSibling.textContent="Minute" : minutesEl.nextElementSibling.textContent="Minutes" ;
 }
 
-slider.querySelector(".next").onclick=()=>{trans(slider,javaphile,"move-left","come-from-right");nexjava()}
-javaphile.querySelector(".back").onclick=()=>{trans(javaphile,slider,"move-right","come-from-left")}
-javaphile.querySelector(".next").onclick=()=>{trans(javaphile,cgp,"move-up","come-from-down");nexcgp()}
-cgp.querySelector(".back").onclick=()=>{trans(cgp,javaphile,"move-down","come-from-up");nexjava()}
-cgp.querySelector(".next").onclick=()=>{nexage();trans(cgp,age,"move-up","come-from-down")}
 let ageCalci;
-age.querySelector(".back").onclick=()=>{
-    clearInterval(ageCalci)
-    trans(age,cgp,"move-down","come-from-up");nexcgp()
-}
-age.querySelector(".next").onclick=()=>{clearInterval(ageCalci);trans(age,music,"move-left","come-from-right")}
-music.querySelector(".back").onclick=()=>{nexage();trans(music,age,"move-right","come-from-left")}
+document.querySelectorAll(".t-butt").forEach((e)=>{e.onclick=()=>{eval(e.dataset.trans)}})

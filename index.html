@@ -36,11 +36,11 @@
         <div class="side right-side">
             <div class="yincont"><div class="yinyang"></div></div>
             <h1>Hey! I'm <span class="fancy">TechKing53</span></h1>
-            <div class="t-butt next fa-solid fa-right-long"></div>
+            <div data-trans='trans(slider,javaphile,"move-left","come-from-right");nexjava()' class="t-butt next fa-solid fa-right-long"></div>
         </div>
     </section>
     <section class="javaphile">
-        <div class="t-butt back fa-solid fa-left-long"></div>
+        <div class="t-butt back fa-solid fa-left-long" data-trans='trans(javaphile,slider,"move-right","come-from-left")'></div>
         <div class="j-flex">
             <div class="j-iflex def">
                 <h1>javaphile</h1> 
@@ -54,7 +54,7 @@
                 <h3>i am</h3>
             </div>
         </div>
-        <div class="t-butt next fa-solid fa-down-long"></div>
+        <div class="t-butt next fa-solid fa-down-long" data-trans='trans(javaphile,cgp,"move-up","come-from-down");nexcgp()'></div>
     </section>
     <section class="cgp">
         <div class="tiles-c toggled"><div id="tiles"></div></div>
@@ -65,11 +65,11 @@
                 <span class="coder">Coder, </span><span class="gamer">Gamer, </span><span class="and">& </span><span class="pro">Procrastinator</span>
             </span>
         </div>
-        <div class="t-butt back fa-solid fa-up-long"></div>
-        <div class="t-butt next fa-solid fa-down-long"></div>
+        <div class="t-butt back fa-solid fa-up-long" data-trans='trans(cgp,javaphile,"move-down","come-from-up");nexjava()'></div>
+        <div class="t-butt next fa-solid fa-down-long" data-trans='nexage();trans(cgp,age,"move-up","come-from-down")'></div>
     </section>
     <section class="age">
-        <div class="t-butt back fa-solid fa-up-long"></div>
+        <div data-trans='clearInterval(ageCalci);trans(age,cgp,"move-down","come-from-up");nexcgp()' class="t-butt back fa-solid fa-up-long"></div>
         <div class="text">
             <h1>I was born</h1>
             <div class="age-container">
@@ -100,10 +100,10 @@
               </div>
             <h1>Ago</h1>
         </div>
-        <div class="t-butt next fa-solid fa-right-long hide"></div>
+        <div data-trans='clearInterval(ageCalci);trans(age,music,"move-left","come-from-right")' class="t-butt next fa-solid fa-right-long"></div>
     </section>
     <section class="music">
-        <div class="t-butt back fa-solid fa-left-long"></div>
+        <div data-trans='nexage();trans(music,age,"move-right","come-from-left")' class="t-butt back fa-solid fa-left-long"></div>
     </section>
     <script src="script.js"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
