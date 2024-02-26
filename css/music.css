@@ -7,8 +7,18 @@
     left: 0;
     background-color: var(--black);
     color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .music::-webkit-scrollbar{
     display: none;
+}
+
+h2{
+    font-size: 8rem;
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
