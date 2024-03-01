@@ -15,7 +15,7 @@ btn.onclick=()=>{
     if(inval.includes('http')){inval=inval.split("//")[1]}
     if(inval.includes('www')){inval=inval.split("www.")[1]}
     if(!inval.includes(".")){inval="gah";}
-    output=inval=="gah"?"Invalid Input":"https://dns.kaviesh.xyz/?="+btoa(inval)
+    output=inval=="gah"?"Invalid Input":"https://links.kaviesh.xyz/?="+btoa(inval)
     h2.innerHTML=output
     link.href=inval=="gah"?"":output
 }
