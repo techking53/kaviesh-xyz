@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Hey! I'm Kaviesh / TechKing53, Gamer, Coder, and Procrastinator. Come with me to hear my story and explore my life.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="kaviesh,xyz,techking53,kaviesh.xyz,coffe,music,coding,html,js,css,agarwaal,website,portfolie,byte">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="load/load.css">
-    <title>Kaviesh - Byte by Byte - A Portfolio and a Half</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM' crossorigin='anonymous'>
+    <title>Link Shortener</title>
+    <style>
+        body{
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input,button{
+            margin-bottom: 20px;
+        }
+        h2{
+            font-size: 36px;
+        }
+    </style>
 </head>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WK4Y3P93G"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1WK4Y3P93G');
-</script>
 <body>
-    <script src="load/load.js"></script>
-    <section class="load">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="20rem">
-            <path fill="#eee" d="M256 64c53 0 96 43 96 96s-43 96-96 96s-96 43-96 96s43 96 96 96C150 448 64 362 64 256S150 64 256 64zm0 448A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm32-352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
-        </svg>
-    </section>
-    <h1 class="hide">Hey! I'm Kaviesh, Gamer, Coder, and Procrastinator. Come with me to hear my story and explore my life.</h1>
+    <div class="container">
+        <label for="URLinput" class="form-label">Enter URL to shorten</label>
+        <input id="URLinput" class="form-control" placeholder="https://google.com"></input>
+        <button class="btn btn-outline-success">Generate Link</button>
+        <h2></h2>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
