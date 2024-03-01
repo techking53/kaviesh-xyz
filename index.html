@@ -8,7 +8,7 @@
     <style>
         body{
             height: 100vh;
-            overflow: hidden;
+            overflow:hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,8 +16,10 @@
         input,button{
             margin-bottom: 20px;
         }
-        h2{
+        a{
             font-size: 36px;
+            text-decoration: none;
+            color: inherit !important;
         }
     </style>
 </head>
@@ -26,7 +28,7 @@
         <label for="URLinput" class="form-label">Enter URL to shorten</label>
         <input id="URLinput" class="form-control" placeholder="https://google.com"></input>
         <button class="btn btn-outline-success">Generate Link</button>
-        <h2></h2>
+        <a href=""><h2 class="text-break"></h2></a>
     </div>
     <script src="script.js"></script>
 </body>
