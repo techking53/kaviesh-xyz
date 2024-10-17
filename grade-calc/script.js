@@ -16,7 +16,11 @@ const sublist={
     chem:[1.5,1.25,1,200],
     ems:[1,1,160],
     acc:[1.22587,1,143],
-    eco:[1.5,1.16667,150]
+    eco:[1.6667,1,100],
+    matha:[1,1,125],
+    accas:[1.16667,1,125],
+    acca2:[1,1,125],
+    ecoa:[1,1,90]
 }
 const papers=document.querySelector('.papers')
 const pq="<div class='q'><label for='FormControlInput1' class='form-label'>Paper </label><input type='number' class='form-control' id='FormControlInput1' placeholder='XYZ'></div>"
